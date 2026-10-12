@@ -240,9 +240,9 @@ def main():
 
     # 8. Summary Status
     print("\n" + "=" * 70)
-    print("STATUS SUMMARY: Phase 6 Staged Baseline Prepared | Ready for User Commit Approval")
-    print("GIT STATUS    : 61 files staged for initial baseline commit; 0 commits; 0 remotes")
-    print("COMMIT COMMAND: git commit -m \"feat: complete MoveInSync review analysis platform (Phases 0-5)\"")
+    print("STATUS SUMMARY: Phase 6 Complete | Committed & Pushed to GitHub Repository")
+    print("GIT REPO      : https://github.com/Perfectionist0001/MOVEINSYNC-APPLICATION-REVIEW-ANALYSIS-TOOL.git")
+    print("GIT BRANCH    : main (up to date with origin/main)")
     print("LAUNCH COMMAND: .\\.venv\\Scripts\\streamlit.exe run dashboard.py")
     print("TEST COMMAND  : .\\.venv\\Scripts\\python.exe -m unittest discover -s tests -p 'test_*.py'")
     print("=" * 70)

@@ -1,0 +1,12 @@
+# MoveInSync Review Analysis - Dependency Manifest
+# Python 3.11+
+
+# Core Data Engineering & Analysis
+pandas==3.0.6
+numpy==2.4.6
+google-play-scraper==1.2.7
+matplotlib==3.11.2
+
+# Phase 4 Interactive Dashboard & Visualization
+streamlit==1.65.0
+plotly==7.1.0

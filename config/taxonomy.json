@@ -1,0 +1,211 @@
+{
+  "version": "1.0.0",
+  "themes": {
+    "crashes_and_updates": {
+      "display_name": "Crashes & Update Issues",
+      "patterns": [
+        "\\bcrash(ed|es|ing)?\\b",
+        "\\bfreeze(s|d|ing)?\\b",
+        "\\buninstall(ed|ing|s)?\\b",
+        "\\bre-?install(ed|ing|s)?\\b",
+        "\\b(?:unable|cannot|can'?t|won'?t|failed)\\s+to\\s+install\\b",
+        "\\b(?:after|with|since|latest|new)\\s+(?:the\\s+)?update(s)?\\b",
+        "\\bupdate(s)?\\s+(?:made|broke|is\\s+worse|makes\\s+it\\s+worse|bug|issue|error|loop|problem|delay)\\b",
+        "\\b(?:auto\\s+updates|dislike\\s+(?:the\\s+)?(?:new\\s+)?update|no\\s+update\\s+available)\\b",
+        "\\bwhenever\\s+i\\s+update\\b",
+        "\\b(?:unable|cannot|can'?t|won'?t)\\s+(?:to\\s+)?update\\b",
+        "\\bslow\\s+after\\s+(?:the\\s+)?update\\b",
+        "\\bupdate\\s+itself\\b",
+        "\\bnot opening\\b",
+        "\\bunable to open\\b",
+        "\\bwon'?t open\\b",
+        "\\bcan'?t open\\b",
+        "\\bdoesn'?t open\\b",
+        "\\bdoesn'?t start\\b",
+        "\\bforce close\\b",
+        "\\bstopped working\\b",
+        "\\bgetting stopped\\b",
+        "\\bblack screen\\b",
+        "\\bwhite screen\\b",
+        "\\bnot\\s+(?:installed|downloaded)\\s+(?:from|thru)\\s+(?:the\\s+)?(?:play\\s*store|playstore|app\\s*store)\\b",
+        "\\bnot installed from play store\\b",
+        "\\bnot downloaded from playstore\\b",
+        "\\bnot downloaded from play store\\b",
+        "\\bdownload(ed)? from playstore\\b",
+        "\\bplaystore error\\b",
+        "\\bkeep(s)? stopping\\b",
+        "\\b(?<!never\\s)(?<!never\\sget\\s)(?<!never\\sgets\\s)(?<!not\\s)stuck\\b",
+        "\\bcloses\\b",
+        "\\bclosing\\b",
+        "\\bkeeps closing\\b",
+        "\\bblank screen\\b"
+      ]
+    },
+    "booking_and_roster": {
+      "display_name": "Booking & Roster Scheduling",
+      "patterns": [
+        "\\bbook(ing|ed|s)?\\b",
+        "\\broster(s|ing)?\\b",
+        "\\bcancel(led|ling|s)?\\b",
+        "\\bschedule(s|d|ing)?\\b",
+        "\\bseat(s)?\\b",
+        "\\bshift(s)?\\b",
+        "\\bcutoff\\b",
+        "\\bcut off\\b",
+        "\\bmodify\\b",
+        "\\breschedule\\b",
+        "\\brange booking\\b",
+        "\\bweekly booking\\b",
+        "\\btime slot\\b",
+        "\\bseat buckle\\b",
+        "\\bseatbelt\\b"
+      ]
+    },
+    "eta_and_tracking": {
+      "display_name": "ETA, Route & Live Tracking",
+      "patterns": [
+        "\\beta\\b",
+        "\\btrack(ing|ed)?\\b",
+        "\\bgps\\b",
+        "\\blocation\\b",
+        "\\bmap(s)?\\b",
+        "\\broute(s|ing)?\\b",
+        "\\bdelay(ed|s)?\\b",
+        "\\blate\\b",
+        "\\bwrong location\\b",
+        "\\bwrong eta\\b",
+        "\\bdetour\\b",
+        "\\bpilgrimage\\b",
+        "\\bbharat darshan\\b",
+        "\\bzoom(ed|ing)?\\b",
+        "\\bdistance\\b",
+        "\\blive location\\b",
+        "\\bwrong way\\b",
+        "\\bnavigation\\b",
+        "\\btime calculation\\b",
+        "\\btraffic\\b"
+      ]
+    },
+    "login_and_otp": {
+      "display_name": "Login, OTP & Authentication",
+      "patterns": [
+        "\\botp\\b",
+        "\\blogin\\b",
+        "\\blog in\\b",
+        "\\bsign in\\b",
+        "\\bsign up\\b",
+        "\\bpassword\\b",
+        "\\bregister(ed|ing|ation)?\\b",
+        "\\bmobile number\\b",
+        "\\bphone number\\b",
+        "\\bsso\\b",
+        "\\bauth(enticat(ion|ed))?\\b",
+        "\\blog(s|ged)? out\\b",
+        "\\blogout\\b",
+        "\\bverification code\\b",
+        "\\bresend\\b"
+      ]
+    },
+    "notifications": {
+      "display_name": "Notifications & Alerts",
+      "patterns": [
+        "\\bnotif(ication|ications)?\\b",
+        "\\balert(s)?\\b",
+        "\\bsms\\b",
+        "\\bmessage\\s*(alert|come|comes|arrive|received?)s?\\b",
+        "\\b(sms|text\\s*message|push\\s*message|message\\s*alert)\\b",
+        "\\bsound\\b",
+        "\\bring(ing)?\\b",
+        "\\bno alert\\b",
+        "\\blate notif\\b",
+        "\\bsilent\\b",
+        "\\bpopup\\b",
+        "\\bpop-up\\b",
+        "\\breminder\\b"
+      ]
+    },
+    "ui_and_usability": {
+      "display_name": "UI, Speed & Usability (incl. Dark Mode)",
+      "patterns": [
+        "\\bui\\b",
+        "\\bux\\b",
+        "\\bdark mode\\b",
+        "\\binterface\\b",
+        "\\bslow\\b",
+        "\\blag(gy|ging)?\\b",
+        "\\bhang(ing|s)?\\b",
+        "\\bbattery\\b",
+        "\\bconfus(ing|ed)?\\b",
+        "\\bfont\\b",
+        "\\blayout\\b",
+        "\\bcomplex\\b",
+        "\\bclunky\\b",
+        "\\bglitch(y|es)?\\b",
+        "\\buser friendly\\b",
+        "\\beasy to use\\b",
+        "\\basking for rating\\b",
+        "\\brating popup\\b",
+        "\\b(cache|offline|network\\s*call)\\b"
+      ]
+    },
+    "support_and_operations": {
+      "display_name": "Support, Driver Behavior & Ops",
+      "patterns": [
+        "\\bsupport\\b",
+        "\\bcustomer care\\b",
+        "\\bcustomer service\\b",
+        "\\bhelpdesk\\b",
+        "\\bhelp desk\\b",
+        "\\bdriver(s)?\\b",
+        "\\bvendor(s)?\\b",
+        "\\bcall driver\\b",
+        "\\brude\\b",
+        "\\brash\\b",
+        "\\bno show\\b",
+        "\\bno-show\\b",
+        "\\bpenalty\\b",
+        "\\btransport team\\b",
+        "\\badmin\\b",
+        "\\bmanagement\\b",
+        "\\bescalat(e|ion)\\b",
+        "\\bcomplaint\\b",
+        "\\bco-passenger\\b",
+        "\\bmarshal\\b",
+        "\\bfacility\\b"
+      ]
+    },
+    "safety_and_permissions": {
+      "display_name": "Safety, Permissions & Night Commute",
+      "patterns": [
+        "\\bsafety\\b",
+        "\\bsos\\b",
+        "\\bemergency\\b",
+        "\\bpermission(s)?\\b",
+        "\\bmicrophone\\b",
+        "\\bmic\\b",
+        "\\bfemale\\b",
+        "\\bwomen\\b",
+        "\\bnight\\b",
+        "\\bsecurity\\b",
+        "\\bprivacy\\b",
+        "\\blate night\\b",
+        "\\btracking permission\\b"
+      ]
+    }
+  },
+  "fallback_theme": {
+    "id": "other_unclassified",
+    "display_name": "Other / Generic (No specific feature)"
+  },
+  "priority_order": [
+    "crashes_and_updates",
+    "safety_and_permissions",
+    "login_and_otp",
+    "eta_and_tracking",
+    "booking_and_roster",
+    "notifications",
+    "support_and_operations",
+    "ui_and_usability",
+    "other_unclassified"
+  ]
+}

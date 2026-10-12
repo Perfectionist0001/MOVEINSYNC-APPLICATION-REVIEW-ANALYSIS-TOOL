@@ -1,0 +1,51 @@
+holdout_id,app_id,reviewId,score,version_clean,at,content_clean,assigned_themes,primary_theme,is_multi_theme
+H01,com.moveinsync.ets,6cd34a09-fc56-4cdc-88e4-3207678aa833,1,12.17.0,2026-08-23 18:10:37,not able to book cab.,['booking_and_roster'],booking_and_roster,False
+H02,com.moveinsync.ets,512425e1-1a88-4793-b3cd-bcdf91cd9ac9,2,12.16.0,2026-08-13 08:00:19,navigating inside the app is not easy,['other_unclassified'],other_unclassified,False
+H03,com.moveinsync.ets,0f947251-87c6-4244-92b9-0df3218ca71e,2,12.17.0,2026-09-02 21:04:31,once we book a bus it should not have to be cancelled or made changes by other than employee. but here booked bus are till about to travel but reflecting no show,"['booking_and_roster', 'support_and_operations']",booking_and_roster,True
+H04,com.moveinsync.ets,ef2acf20-b61f-4d2a-ba57-23d5206d418b,1,12.19.0,2026-09-24 12:23:01,everytime I download it won't open again after 1-2 days and I have to download it again,['crashes_and_updates'],crashes_and_updates,False
+H05,com.moveinsync.ets,2b5b4c19-7f15-4e3a-907a-8ed47e7daf82,1,12.15.0,2026-08-22 00:29:57,"The service is absolutely terrible, extremelypoor... They only care about the money.",['other_unclassified'],other_unclassified,False
+H06,com.moveinsync.ets,80fb6601-efa8-460c-903d-2835315a4322,1,12.19.0,2026-09-22 09:46:42,not open,['other_unclassified'],other_unclassified,False
+H07,com.moveinsync.ets,c8dd8ff6-e11d-4820-801f-67e4055ac1bc,1,12.16.0,2026-08-14 23:24:31,This has terrible routing - picks the wrong and longer route,['eta_and_tracking'],eta_and_tracking,False
+H08,com.moveinsync.ets,b0bfdf1c-0857-4cf2-9064-fa7c5fc3c3cd,1,12.17.0,2026-08-17 07:37:31,keeps crashing whenever we click track option. Device Brand : Samsung Model : S22+,"['crashes_and_updates', 'eta_and_tracking']",crashes_and_updates,True
+H09,com.moveinsync.ets,88fa8703-20ab-4e8f-ab4d-07f59f254952,1,12.19.0,2026-09-23 23:08:23,as per mine experience ut should get zero review as they were not assigning cabs on time,['other_unclassified'],other_unclassified,False
+H10,com.moveinsync.ets,e0d68839-6e59-4dd7-8f00-052cda79a063,1,Unknown/Unspecified,2026-10-04 17:44:41,I try to login to this app but it's not sending any otp to login without login how we can use this app 😤😤😤 technical team please check once about this issue,['login_and_otp'],login_and_otp,False
+H11,com.moveinsync.ets,145e34ef-5530-438b-bb8b-9dff2aed6e90,1,12.18.1,2026-09-18 06:55:35,"first if the all the app itself is garbage , would crash after every 20days. Then the service , I dont know why companies even go with these retarded service , no ethics and no responsibility at all. Companies should absolutely avoid",['crashes_and_updates'],crashes_and_updates,False
+H12,com.moveinsync.ets,abf9ce53-a36d-4897-9fad-031610d57d88,1,Unknown/Unspecified,2026-09-21 19:48:17,disaponintmetnt,['other_unclassified'],other_unclassified,False
+H13,com.moveinsync.ets,5d8b03fa-d0d1-42c6-9ecc-aa92a8c1d0f1,1,12.17.0,2026-08-14 20:54:00,"very bad , this app is not updated every thing on time",['other_unclassified'],other_unclassified,False
+H14,com.moveinsync.ets,d385448a-e035-4a20-a220-aad62186e061,1,12.18.0,2026-09-01 06:45:11,worst apl ever,['other_unclassified'],other_unclassified,False
+H15,com.moveinsync.ets,5b8a7608-5d55-47f7-a262-6872ef125240,1,12.18.0,2026-09-01 13:55:54,unable to book cabs and even the support team is not helping fix the issue ...,"['booking_and_roster', 'support_and_operations']",booking_and_roster,True
+H16,com.moveinsync.ets,3b496343-6d57-4b65-9438-35e18b2d5f0f,3,12.16.1,2026-08-05 10:52:10,"good ... but it takes a lot of time to reload... & location is not accurate, little bit issues... & while opening application - every i have to accept the transport policies by clicking i agree... feel a little bit lag ,","['eta_and_tracking', 'ui_and_usability']",eta_and_tracking,True
+H17,com.moveinsync.ets,2b0213c8-2dfe-4116-aecc-a27929059916,3,12.17.0,2026-09-09 08:37:33,app keeps showing no network even though the network is stable and all other apps working fine,['other_unclassified'],other_unclassified,False
+H18,com.moveinsync.ets,3db67aeb-2d7f-4b6a-ab28-bd4ebd0e3199,3,12.18.1,2026-09-15 14:15:02,it took time for generating OTP,['login_and_otp'],login_and_otp,False
+H19,com.moveinsync.ets,22601e98-0733-4556-b07b-7cbb8a46bfbd,3,Unknown/Unspecified,2026-08-13 12:49:54,why app logging out every time?after entering credentials will be there 2 mins and automatically logged out.,['login_and_otp'],login_and_otp,False
+H20,com.moveinsync.ets,bc48ce4f-05c7-4414-9f7b-9c08b3272ab5,3,12.16.0,2026-07-29 16:41:17,"we use this app for our office commute, but it always crashes, giving an error that this app is not downloaded from app store, and then I have to uninstall and install it again, it happens quite often, can you'll please fix this issue",['crashes_and_updates'],crashes_and_updates,False
+H21,com.moveinsync.ets,3a31e3dc-ee0f-4b39-9395-692fba2cc36f,5,12.19.0,2026-10-05 17:18:36,good,['other_unclassified'],other_unclassified,False
+H22,com.moveinsync.ets,7fc36aea-c180-41bc-9510-b173f442d609,5,12.18.0,2026-09-06 21:29:06,awesome,['other_unclassified'],other_unclassified,False
+H23,com.moveinsync.ets,2506391f-7cd9-4f87-9c8f-263181f3aa0c,5,12.17.0,2026-08-28 21:55:04,very convenient,['other_unclassified'],other_unclassified,False
+H24,com.moveinsync.ets,32f2a253-0d8e-4e38-8920-1a94c506ab30,5,12.18.1,2026-09-19 04:33:30,efficient fast and reliable more power!!,['other_unclassified'],other_unclassified,False
+H25,com.moveinsync.ets,3a371891-e425-4928-b544-7e847081ab7d,4,12.18.1,2026-09-22 19:23:26,it's good for office commute,['other_unclassified'],other_unclassified,False
+H26,com.moveinsync.ets,923edf48-44d6-4027-8741-e59cd54aace3,5,11.4.34,2026-09-23 13:09:56,Awesome appp,['other_unclassified'],other_unclassified,False
+H27,com.moveinsync.ets,3b0e8e76-2e62-4603-8e14-29b55b5234e1,5,12.17.0,2026-08-14 08:39:07,great app,['other_unclassified'],other_unclassified,False
+H28,com.moveinsync.ets,69750db3-4a1d-48f0-b6f3-005eb5479d9f,5,12.18.1,2026-09-25 01:21:06,Amazing experience on the top of the other transportation apps.,['other_unclassified'],other_unclassified,False
+H29,com.moveinsync.ets,1a07613d-867b-4882-9645-b9cd73bb0e89,4,12.18.0,2026-09-04 05:45:10,wonder app and they really bring nice and useful updates,['other_unclassified'],other_unclassified,False
+H30,com.moveinsync.ets,c9c45a3f-8fc6-454a-b55a-5bee30d97711,5,12.18.0,2026-09-08 16:01:09,overall good,['other_unclassified'],other_unclassified,False
+H31,com.moveinsync.ets,9fe7b534-4aed-469b-85b7-a146dc89bf5d,5,12.16.0,2026-08-18 04:36:52,last minute cab booking and team is very understanding.,['booking_and_roster'],booking_and_roster,False
+H32,com.moveinsync.ets,0521a132-adde-46e0-ada7-34a45f021d85,5,12.18.0,2026-09-05 20:06:10,great work 👍🏼,['other_unclassified'],other_unclassified,False
+H33,com.moveinsync.ets,6f45dcad-2b02-4c0b-9f1b-14a84c4e3870,5,12.16.0,2026-07-28 20:06:47,Top notch travelling experience,['other_unclassified'],other_unclassified,False
+H34,com.moveinsync.ets,cdaa8e55-5833-4e1b-884a-e1de96de5463,5,12.18.0,2026-09-07 09:53:25,Really awesome.,['other_unclassified'],other_unclassified,False
+H35,com.moveinsync.ets,5143de9f-66c1-4b7f-88bb-3ecaf22bd6fc,5,12.17.0,2026-08-20 08:01:26,nice,['other_unclassified'],other_unclassified,False
+H36,com.moveinsync.driver.lite,8145052e-f42a-4509-b2d1-94a21a356cbe,1,9.2,2024-04-21 00:51:59,"While traveling the app doesn't count accurate kilometres .some times app stuck when not in use(,waste app). From start to end km and also while using this app always my phone over heated and due to which all apps crash.🤳",['crashes_and_updates'],crashes_and_updates,False
+H37,com.moveinsync.driver.lite,3dd63608-2cae-4b99-858b-530620f06da0,1,Unknown/Unspecified,2026-01-05 20:38:54,no login OTP,['login_and_otp'],login_and_otp,False
+H38,com.moveinsync.driver.lite,15649a50-4aa7-49c0-8248-36ff3a6905a8,1,9.2,2024-01-16 15:31:18,This app is not working,['other_unclassified'],other_unclassified,False
+H39,com.moveinsync.driver.lite,2f33a86a-4ad4-42eb-accc-1a6961e25954,1,7.8,2021-02-09 17:58:09,Worst!,['other_unclassified'],other_unclassified,False
+H40,com.moveinsync.driver.lite,467ae3ae-bce8-49f5-b387-064299e3f981,1,7.8,2021-02-09 20:18:24,Not working..,['other_unclassified'],other_unclassified,False
+H41,com.moveinsync.driver.lite,4cecaf36-0499-4f49-9212-f32132d027ea,3,10.1.9,2026-06-05 18:00:15,fine 👌,['other_unclassified'],other_unclassified,False
+H42,com.moveinsync.driver.lite,5278f198-a432-4730-bec9-d7086ec0a687,3,9.5,2024-09-06 09:57:57,Very bad,['other_unclassified'],other_unclassified,False
+H43,com.moveinsync.driver.lite,f3c8ae04-e0a2-46a9-b52e-b78b0227b1d3,5,9.2,2024-03-13 07:26:12,Super,['other_unclassified'],other_unclassified,False
+H44,com.moveinsync.driver.lite,3ef2847f-bd27-491f-8cb4-78a3822c7cbf,5,10.1.0,2025-07-08 19:54:40,good,['other_unclassified'],other_unclassified,False
+H45,com.moveinsync.driver.lite,8b2665ae-479c-492d-895e-0ce16176ac73,5,9.5,2024-10-04 16:34:53,Good,['other_unclassified'],other_unclassified,False
+H46,com.moveinsync.driver.lite,f98c00bf-eafa-4c54-a576-53477bafbe47,5,8.5,2022-12-20 00:34:55,Good,['other_unclassified'],other_unclassified,False
+H47,com.moveinsync.driver.lite,e520f997-33d0-4166-a41b-4c451d10ebe1,5,Unknown/Unspecified,2026-07-06 09:35:14,good 👍,['other_unclassified'],other_unclassified,False
+H48,com.moveinsync.driver.dco,d3e1ee67-50bb-4ec2-8ef5-265eefd36f63,1,Unknown/Unspecified,2026-02-02 14:01:22,no service,['other_unclassified'],other_unclassified,False
+H49,com.moveinsync.driver.dco,2f5a94a8-5776-4db0-84da-0a2c5403be89,1,Unknown/Unspecified,2026-08-21 08:53:59,poor,['other_unclassified'],other_unclassified,False
+H50,com.moveinsync.driver.dco,8e99afcb-2842-4a32-ad5a-ac4a86720249,5,Unknown/Unspecified,2025-06-19 17:40:48,good,['other_unclassified'],other_unclassified,False

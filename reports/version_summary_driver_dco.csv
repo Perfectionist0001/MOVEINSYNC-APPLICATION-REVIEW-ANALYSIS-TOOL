@@ -1,0 +1,3 @@
+version,sample_size_N,mean_score,median_score,one_star_count,two_star_count,three_star_count,four_star_count,five_star_count,negative_pct_1_2_star,positive_pct_4_5_star,crash_issue_count,crash_issue_rate_pct,eta_issue_count,first_review_date,last_review_date
+Unknown/Unspecified,6,3.0,3.0,3,0,0,0,3,50.0,50.0,0,0.0,0,2025-06-19,2026-08-21
+1.0.0,1,1.0,1.0,1,0,0,0,0,100.0,0.0,0,0.0,0,2026-02-14,2026-02-14

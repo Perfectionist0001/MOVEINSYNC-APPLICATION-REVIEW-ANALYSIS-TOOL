@@ -1,0 +1,10 @@
+theme,TP,FP,FN,TN,precision,recall,f1_score,support
+crashes_and_updates,5,0,1,44,1.0,0.833,0.909,6
+booking_and_roster,4,0,0,46,1.0,1.0,1.0,4
+eta_and_tracking,3,0,1,46,1.0,0.75,0.857,4
+login_and_otp,4,0,0,46,1.0,1.0,1.0,4
+notifications,0,0,0,50,0.0,0.0,0.0,0
+ui_and_usability,1,0,2,47,1.0,0.333,0.5,3
+support_and_operations,2,0,3,45,1.0,0.4,0.571,5
+safety_and_permissions,0,0,1,49,0.0,0.0,0.0,1
+other_unclassified,31,4,0,15,0.886,1.0,0.939,31

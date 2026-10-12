@@ -1,0 +1,10 @@
+theme_key,theme_name,review_count,share_of_total_reviews_pct,negative_reviews_1_2_star,neutral_reviews_3_star,positive_reviews_4_5_star,negative_rate_within_theme_pct,share_of_all_negative_reviews_pct,mean_rating
+other_unclassified,Other / Generic (No specific feature),416,69.33,64,2,350,15.38,36.36,4.35
+crashes_and_updates,Crashes & Update Issues,36,6.0,29,7,0,80.56,16.48,1.5
+eta_and_tracking,"ETA, Route & Live Tracking",42,7.0,27,2,13,64.29,15.34,2.38
+support_and_operations,"Support, Driver Behavior & Ops",35,5.83,25,0,10,71.43,14.2,2.17
+booking_and_roster,Booking & Roster Scheduling,33,5.5,24,0,9,72.73,13.64,2.18
+ui_and_usability,"UI, Speed & Usability (incl. Dark Mode)",46,7.67,18,1,27,39.13,10.23,3.33
+login_and_otp,"Login, OTP & Authentication",26,4.33,18,4,4,69.23,10.23,1.96
+notifications,Notifications & Alerts,10,1.67,8,0,2,80.0,4.55,1.9
+safety_and_permissions,"Safety, Permissions & Night Commute",13,2.17,7,0,6,53.85,3.98,3.0

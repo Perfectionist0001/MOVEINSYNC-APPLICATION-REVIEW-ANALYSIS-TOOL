@@ -1,0 +1,31 @@
+sample_index,reviewId,score,content,predicted_themes,version
+1,e735e280-9992-470e-b8df-d9b4a0e1e214,1,Unable to open the app on my phone. closes as soon as I try to open,['crashes_and_updates'],12.19.0
+2,e2aa92a6-7a35-4f92-8d57-edfdf74799b8,1,Worst app and Worst experience,['other_unclassified'],12.18.1
+3,74af5ef8-abac-458b-97c7-364f06c960c6,1,wrost,['other_unclassified'],Unknown/Unspecified
+4,0def625f-f0c8-4d3a-859d-4891c82c80ab,1,This aap keeps on crashing due to some bug and there is No Update Available Yet... What will Working Professionals do who avail cab services???,['crashes_and_updates'],Unknown/Unspecified
+5,907f3c80-e25a-4702-8fdd-33e0e538f88b,1,waste,['other_unclassified'],12.18.1
+6,823b9c8b-afde-47e7-abad-fb60f14ea562,1,app stuck all the time unable to schedule pathetic,"['crashes_and_updates', 'booking_and_roster']",12.19.0
+7,f61b87be-2625-4997-88c2-421a89dd01fe,1,"This is a third class app which is not at all user friendly for employees, this is just made to the convenience of vendors,Help desk and vendors are not at all helpful on this app...they don't even consider your concerns.... worst transportation app I've ever used.","['ui_and_usability', 'support_and_operations']",12.17.0
+8,ccf0a018-422b-42c9-a994-16960d3d348e,1,not a reliable aap,['other_unclassified'],12.16.0
+9,714eb4f9-7828-4af2-a2a8-0d690feffa59,1,always keeps asking for rating,['ui_and_usability'],12.17.0
+10,a1e5d1c8-5b4f-46d3-a313-2070b7675515,1,I'm not sure how this app got a 4-star rating that doesn't even bother to get a 1star rating.,['other_unclassified'],Unknown/Unspecified
+11,e12ed49a-d376-4cf2-9cfd-45cae0162feb,1,"This app is going from bad to horrible. The seat buckle verification is absolutely horrendous and the OTP keeps disappearing behind the seat belt check. To top it all, ads are being introduced. Why is there not some cache wherein a user has their ride details stored? instead it needs a network call every time you open the app which is annoying when you're underground without much internet","['booking_and_roster', 'login_and_otp', 'ui_and_usability']",12.11.2
+12,5ac20968-6bad-4b53-9d1d-a0af6da248ed,1,very confusing and retain incorrect preferences,['ui_and_usability'],12.16.1
+13,4e3820a7-aac3-4c54-aa6c-2b2f1bd1ddc4,3,app is not opening properly,['crashes_and_updates'],12.16.0
+14,b6917179-a3ab-4af8-9a53-50c6d987eb36,3,logs out frequently,['login_and_otp'],Unknown/Unspecified
+15,133d2b88-b2d2-4fd4-9594-1ac26caf819e,3,"a few days ago this app was working fine on my phone, but for the last 3 days it's not working at all. The app doesn't start on my phone, whenever I am opening it, it closes itself. I tried clearing data, reinstalled it, but no change. It's not opening at all.",['crashes_and_updates'],Unknown/Unspecified
+16,3a66e81d-46fa-4b36-85ac-9d504fa0ddfa,3,"overall a good app, but bring back seeing who all are traveling with you and their sequence number, also the app sometimes refuses to open and displays a message that says the app cannot be opened as it is not installed when it's clearly installed and i have to uninstall and reinstall and this has happened a few times so fix that bug",['crashes_and_updates'],12.16.0
+17,ba357853-25d6-4c48-9463-ab48feb5d3e2,3,it is showing as not downloaded from playstore most of the times fix it,['crashes_and_updates'],12.17.0
+18,4b1646d6-ab4e-43e5-9695-a0c1a6afe507,3,after 2-3 days it says cannot open as not installed from play store. I need to install again due to this.,['crashes_and_updates'],12.16.0
+19,b8d0a121-c5a6-4475-808a-ebe941b39d3d,5,excellent,['other_unclassified'],12.18.1
+20,6137466e-3a7b-4c0c-9bb2-2a4f88faabed,5,best,['other_unclassified'],12.18.1
+21,354acf70-dfe1-49af-81f4-e4f4f31484cb,5,outstanding,['other_unclassified'],12.18.1
+22,a0f4d659-21fd-436c-9d1e-91cd56886921,5,its smooth,['other_unclassified'],12.18.1
+23,23bbc27a-96e0-412b-948b-0f4c36c98031,5,good service,['other_unclassified'],12.19.0
+24,65052295-5f7b-4e4a-9099-af213b42a623,5,should improve the customer service,['support_and_operations'],12.19.0
+25,f9dc2b87-1270-49e9-851c-60366bc79a83,5,excellent,['other_unclassified'],12.16.0
+26,d135107f-7f33-4fda-ae1f-30d22a5fdf3c,5,Good going Application,['other_unclassified'],12.18.0
+27,fb7a32bf-5cda-44d4-8b2f-9a37f4cc0541,5,awesome app,['other_unclassified'],12.16.1
+28,1c00ef7d-0246-45bb-bdcb-4679d5c6c12a,5,Good,['other_unclassified'],12.18.0
+29,1fbb2b4f-1ab3-4baa-95d2-39b8319d2d62,5,Excellent service.,['other_unclassified'],12.17.0
+30,42ecebbf-ae44-49e4-87ee-711212b692f6,5,good application,['other_unclassified'],12.18.0

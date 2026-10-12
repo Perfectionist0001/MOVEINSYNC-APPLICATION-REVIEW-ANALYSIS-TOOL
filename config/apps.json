@@ -1,0 +1,29 @@
+{
+  "version": "1.0.0",
+  "apps": [
+    {
+      "app_id": "com.moveinsync.ets",
+      "name": "MoveInSync",
+      "display_name": "MoveInSync (Employee)",
+      "role": "employee",
+      "slug": "employee",
+      "raw_reviews_file": "com.moveinsync.ets_reviews.csv"
+    },
+    {
+      "app_id": "com.moveinsync.driver.lite",
+      "name": "Moveinsync Partner - Lite",
+      "display_name": "Moveinsync Partner - Lite",
+      "role": "driver",
+      "slug": "driver_lite",
+      "raw_reviews_file": "com.moveinsync.driver.lite_reviews.csv"
+    },
+    {
+      "app_id": "com.moveinsync.driver.dco",
+      "name": "MoveInSync - Driver Partner",
+      "display_name": "MoveInSync - Driver Partner",
+      "role": "driver",
+      "slug": "driver_dco",
+      "raw_reviews_file": "com.moveinsync.driver.dco_reviews.csv"
+    }
+  ]
+}

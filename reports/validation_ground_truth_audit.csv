@@ -1,0 +1,31 @@
+sample_index,score,content,predicted,ground_truth,exact_match,jaccard_similarity,false_positives,false_negatives,notes
+1,1,Unable to open the app on my phone. closes as soon as I try to open,['crashes_and_updates'],['crashes_and_updates'],True,1.0,[],[],Closes immediately on launch (Crash/Launch failure)
+2,1,Worst app and Worst experience,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic negative ('Worst app and Worst experience') - no specific feature
+3,1,wrost,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic negative ('wrost')
+4,1,This aap keeps on crashing due to some bug and there is No Update Available Yet... What will Working Professionals do who avail cab services???,['crashes_and_updates'],['crashes_and_updates'],True,1.0,[],[],Keeps crashing due to bug and no update available
+5,1,waste,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic negative ('waste')
+6,1,app stuck all the time unable to schedule pathetic,"['booking_and_roster', 'crashes_and_updates']","['booking_and_roster', 'crashes_and_updates']",True,1.0,[],[],App stuck (freeze) + unable to schedule (booking)
+7,1,"This is a third class app which is not at all user friendly for employees, this is just made to the convenience of vendors,Help desk and vendors are not at all helpful on this app...they don't even consider your concerns.... worst transportation app I've ever used.","['support_and_operations', 'ui_and_usability']","['support_and_operations', 'ui_and_usability']",True,1.0,[],[],Not user friendly (UI) + Help desk & vendors unhelpful (Support/Ops)
+8,1,not a reliable aap,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic negative ('not a reliable aap')
+9,1,always keeps asking for rating,['ui_and_usability'],['ui_and_usability'],True,1.0,[],[],Annoying in-app rating prompt ('always keeps asking for rating')
+10,1,I'm not sure how this app got a 4-star rating that doesn't even bother to get a 1star rating.,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic meta-rating complaint ('I'm not sure how this app got a 4-star rating...')
+11,1,"This app is going from bad to horrible. The seat buckle verification is absolutely horrendous and the OTP keeps disappearing behind the seat belt check. To top it all, ads are being introduced. Why is there not some cache wherein a user has their ride details stored? instead it needs a network call every time you open the app which is annoying when you're underground without much internet","['booking_and_roster', 'login_and_otp', 'ui_and_usability']","['booking_and_roster', 'login_and_otp', 'ui_and_usability']",True,1.0,[],[],Seat buckle check (booking) + OTP behind seatbelt (login/OTP) + needs network call / caching (usability/offline)
+12,1,very confusing and retain incorrect preferences,['ui_and_usability'],['ui_and_usability'],True,1.0,[],[],Confusing UI and incorrect preferences
+13,3,app is not opening properly,['crashes_and_updates'],['crashes_and_updates'],True,1.0,[],[],Not opening properly (Launch issue)
+14,3,logs out frequently,['login_and_otp'],['login_and_otp'],True,1.0,[],[],Logs out frequently (Session/Auth issue)
+15,3,"a few days ago this app was working fine on my phone, but for the last 3 days it's not working at all. The app doesn't start on my phone, whenever I am opening it, it closes itself. I tried clearing data, reinstalled it, but no change. It's not opening at all.",['crashes_and_updates'],['crashes_and_updates'],True,1.0,[],[],"Doesn't start, closes itself, reinstall doesn't help"
+16,3,"overall a good app, but bring back seeing who all are traveling with you and their sequence number, also the app sometimes refuses to open and displays a message that says the app cannot be opened as it is not installed when it's clearly installed and i have to uninstall and reinstall and this has happened a few times so fix that bug",['crashes_and_updates'],['crashes_and_updates'],True,1.0,[],[],"Refuses to open / 'not installed from play store' loop. ('displays a message' is an error popup, NOT a push notification)"
+17,3,it is showing as not downloaded from playstore most of the times fix it,['crashes_and_updates'],['crashes_and_updates'],True,1.0,[],[],Showing 'not downloaded from playstore' error
+18,3,after 2-3 days it says cannot open as not installed from play store. I need to install again due to this.,['crashes_and_updates'],['crashes_and_updates'],True,1.0,[],[],Says 'cannot open as not installed from play store'
+19,5,excellent,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic praise ('excellent')
+20,5,best,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic praise ('best')
+21,5,outstanding,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic praise ('outstanding')
+22,5,its smooth,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic praise ('its smooth')
+23,5,good service,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic praise ('good service')
+24,5,should improve the customer service,['support_and_operations'],['support_and_operations'],True,1.0,[],[],Constructive praise/feedback: 'should improve the customer service'
+25,5,excellent,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic praise ('excellent')
+26,5,Good going Application,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic praise ('Good going Application')
+27,5,awesome app,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic praise ('awesome app')
+28,5,Good,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic praise ('Good')
+29,5,Excellent service.,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic praise ('Excellent service.')
+30,5,good application,['other_unclassified'],['other_unclassified'],True,1.0,[],[],Generic praise ('good application')

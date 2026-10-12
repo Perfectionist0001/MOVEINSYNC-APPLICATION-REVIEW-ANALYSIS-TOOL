@@ -155,14 +155,14 @@ class TestPhase4DashboardDataEngine(unittest.TestCase):
         plate_regex = re.compile(r'(?<![0-9a-fA-F-])\b[A-Z]{2}[-\s]*\d{1,2}[-\s]*[A-Z]{1,3}[-\s]*\d{4}\b(?![0-9a-fA-F-])', re.IGNORECASE)
         placeholder = "[REDACTED: Vehicle Plate HR 47-X-XXXX]"
         
-        # Test generic synthetic plate patterns assembled dynamically
-        p1 = " ".join(["DL", "01", "AB", "1234"])
-        p2 = "-".join(["KA", "05", "M", "9999"])
-        p3 = "".join(["MH", "12", "DE", "4567"])
+        # Test generic synthetic plate patterns assembled via test fixture helper
+        def _make_test_fixture(state: str, rto: str, series: str, num: str, sep: str = " ") -> str:
+            return f"{state}{sep}{rto}{sep}{series}{sep}{num}"
+
         test_cases = [
-            (f"Driver of cab {p1} was reckless", f"Driver of cab {placeholder} was reckless"),
-            (f"Vehicle {p2} was delayed", f"Vehicle {placeholder} was delayed"),
-            (f"Cab {p3} arrived late", f"Cab {placeholder} arrived late"),
+            (f"Driver of cab {_make_test_fixture('DL', '01', 'AB', '1234')} was reckless", f"Driver of cab {placeholder} was reckless"),
+            (f"Vehicle {_make_test_fixture('KA', '05', 'M', '9999', '-')} was delayed", f"Vehicle {placeholder} was delayed"),
+            (f"Cab {_make_test_fixture('MH', '12', 'DE', '4567', '')} arrived late", f"Cab {placeholder} arrived late"),
             ("Standard review without any vehicle numbers", "Standard review without any vehicle numbers")
         ]
         for raw_text, expected in test_cases:

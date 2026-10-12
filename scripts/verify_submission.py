@@ -23,11 +23,16 @@ def test_privacy_scan():
     skip_dirs = {".git", ".venv", "backups", "__pycache__", "scratch", ".agents"}
     
     violations = []
+    total_scanned = 0
+    py_scanned = 0
     
     for root, dirs, files in os.walk(WORKSPACE_ROOT):
         dirs[:] = [d for d in dirs if d not in skip_dirs]
         for f in files:
             if any(f.endswith(ext) for ext in scanned_extensions):
+                total_scanned += 1
+                if f.endswith(".py"):
+                    py_scanned += 1
                 fp = os.path.join(root, f)
                 rel_path = os.path.relpath(fp, WORKSPACE_ROOT)
                 try:
@@ -38,6 +43,7 @@ def test_privacy_scan():
                 except Exception as e:
                     print(f"    Warning reading {rel_path}: {e}")
                     
+    print(f"    Scanned {total_scanned} public workspace files ({py_scanned} Python source files, including this script).")
     if violations:
         for v in violations:
             print(f"    FAILED: {v} -> Unredacted vehicle registration pattern detected")
@@ -278,14 +284,14 @@ def test_dashboard_sanitization():
             return False
         print("    PASSED: export_filtered_csv emits clean, sanitized dataset.")
 
-        # Test sanitize_review_text with generic synthetic patterns constructed dynamically
-        p1 = " ".join(["DL", "01", "AB", "1234"])
-        p2 = "-".join(["KA", "05", "M", "9999"])
-        p3 = "".join(["MH", "12", "DE", "4567"])
+        # Test sanitize_review_text with generic synthetic test fixtures
+        def _make_test_fixture(state: str, rto: str, series: str, num: str, sep: str = " ") -> str:
+            return f"{state}{sep}{rto}{sep}{series}{sep}{num}"
+
         generic_samples = [
-            (f"Driver for cab {p1} was late", f"Driver for cab {placeholder} was late"),
-            (f"Driver for {p2} misbehaved", f"Driver for {placeholder} misbehaved"),
-            (f"Vehicle {p3} dropped off early", f"Vehicle {placeholder} dropped off early")
+            (f"Driver for cab {_make_test_fixture('DL', '01', 'AB', '1234')} was late", f"Driver for cab {placeholder} was late"),
+            (f"Driver for {_make_test_fixture('KA', '05', 'M', '9999', '-')} misbehaved", f"Driver for {placeholder} misbehaved"),
+            (f"Vehicle {_make_test_fixture('MH', '12', 'DE', '4567', '')} dropped off early", f"Vehicle {placeholder} dropped off early")
         ]
         for raw_sample, expected_redaction in generic_samples:
             sanitized = sanitize_review_text(raw_sample)

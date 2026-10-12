@@ -1,10 +1,10 @@
 # MoveInSync Review Analysis — Project Status
 
-**Last Verified:** 2026-10-13 02:30:00 IST  
+**Last Verified:** 2026-10-13 04:15:00 IST  
 **Repository Path:** `D:\MOVENSYNC`  
 **GitHub Remote:** `https://github.com/Perfectionist0001/MOVEINSYNC-APPLICATION-REVIEW-ANALYSIS-TOOL.git`  
 **Live Cloud Deployment:** `https://moveinsync-application-review-analysis-tool.streamlit.app/`  
-**Current Phase:** Phase 7 Deployed & Live Verified on Streamlit Community Cloud (OPERATIONAL)  
+**Current Phase:** Phase 8 Final Submission-Readiness Remediation Completed (OPERATIONAL, WORKING TREE AUDITED)  
 
 ---
 
@@ -17,7 +17,7 @@ The MoveInSync Review Analysis system provides a data-driven pipeline to ingest,
 ## 2. Current Phase & Verified Completion Status
 
 | Milestone / Phase | Planned Scope | Current Status | Verification Evidence |
-| :--- | :--- | :---: | :--- |
+| :--- | :--- | :--- | :--- |
 | **Phase 0: Project Audit** | Full read-only audit of scripts, CSVs, reports, and charts | **VERIFIED COMPLETE** | 41 checkpoints verified; reported in audit findings. |
 | **Phase 1: Data Integrity & Config Extraction** | Safe snapshot upsert, externalize configs, fix quote attribution, add tests | **VERIFIED COMPLETE** | Atomic upsert in `scrape_reviews.py`, `config/*.json` created, 11/11 tests pass. |
 | **Phase 1b: Rule Adjustments & History Cleanup** | Apply false-positive fixes; consolidate `ratings_history.csv` | **VERIFIED COMPLETE** | Refined taxonomy applied, 14-row audit CSV exported, ratings history deduplicated to 3 rows. |
@@ -27,20 +27,21 @@ The MoveInSync Review Analysis system provides a data-driven pipeline to ingest,
 | **Phase 5: Final QA & Release Readiness** | Comprehensive QA audit, automated tests (31/31), raw hash verification, security audit, README & .gitignore | **VERIFIED COMPLETE** | 31/31 tests pass; 100% hash match; 0 secrets detected; README and .gitignore created; Release Recommendation: READY WITH LIMITATIONS. |
 | **Phase 6: Git Initialization & Remote Publication** | Initialize Git repository, refine .gitignore to exclude backups/scratch, stage 61 reviewed files, commit baseline, push to GitHub remote | **VERIFIED COMPLETE** | Git initialized on branch `main`; 61 files committed (`4703fee`); pushed to GitHub origin `main`; 31/31 tests pass. |
 | **Phase 7: Deployment Readiness & Portfolio Preparation** | Audit clean environment dependencies, secret/PII posture, path portability, documented commands, dashboard flows, and platform hosting compatibility | **VERIFIED COMPLETE** | Phase 7 report created (`reports/phase7_deployment_readiness.md`); 0 secrets; 0 PII; 31/31 tests pass; Recommendation: **READY TO DEPLOY**. |
+| **Phase 8: Final Submission-Readiness Remediation** | Privacy sanitization, numerical claim reconciliation (v12.17.0–v12.19.0), taxonomy vs. manual cluster audit, credible roadmap, executive brief condensation, dynamic project status, and relative links | **VERIFIED COMPLETE** | 31/31 unit tests pass; 0 unredacted vehicle plates; dynamic status checks operational; executive brief condensed; unredacted data backed up privately outside Git. |
 
 ---
 
 ## 3. Existing Architecture & Important Files
 
 ### Directory Structure & Responsibilities
-- [`scrape_reviews.py`](file:///d:/MOVENSYNC/scrape_reviews.py) `[VERIFIED]`: Play Store incremental scraper with atomic `(date, app_id)` snapshot upsert.
-- [`analyze_reviews.py`](file:///d:/MOVENSYNC/analyze_reviews.py) `[VERIFIED]`: Core generalized analysis pipeline; dynamically loads configured apps from `config/apps.json` and taxonomy from `config/taxonomy.json`; processes all 3 apps and produces per-app and combined outputs with data-driven charts.
-- [`config_loader.py`](file:///d:/MOVENSYNC/config_loader.py) `[VERIFIED]`: Validation and loading engine for JSON configurations.
-- [`project_status.py`](file:///d:/MOVENSYNC/project_status.py) `[VERIFIED]`: Read-only CLI status checker for workspace integrity, raw hashes, and multi-app output readiness.
-- [`config/apps.json`](file:///d:/MOVENSYNC/config/apps.json) `[VERIFIED]`: Application definitions (`com.moveinsync.ets`, `com.moveinsync.driver.lite`, `com.moveinsync.driver.dco`) with explicit slug mappings (`employee`, `driver_lite`, `driver_dco`).
-- [`config/taxonomy.json`](file:///d:/MOVENSYNC/config/taxonomy.json) `[VERIFIED]`: Refined regex taxonomy; false positives eliminated while preserving genuine crash/install defects.
-- [`data/`](file:///d:/MOVENSYNC/data) `[VERIFIED]`: Immutable raw review CSVs (600 ETS, 108 Lite, 7 DCO) and clean 3-row Play Store rating snapshots.
-- [`reports/`](file:///d:/MOVENSYNC/reports) `[VERIFIED]`: Cleaned and processed CSV datasets, summaries, and Markdown reports:
+- [`scrape_reviews.py`](scrape_reviews.py) `[VERIFIED]`: Play Store incremental scraper with atomic `(date, app_id)` snapshot upsert.
+- [`analyze_reviews.py`](analyze_reviews.py) `[VERIFIED]`: Core generalized analysis pipeline; dynamically loads configured apps from `config/apps.json` and taxonomy from `config/taxonomy.json`; processes all 3 apps and produces per-app and combined outputs with data-driven charts.
+- [`config_loader.py`](config_loader.py) `[VERIFIED]`: Validation and loading engine for JSON configurations.
+- [`project_status.py`](project_status.py) `[VERIFIED]`: Dynamic CLI status checker verifying git branch, working tree cleanliness, dependency availability, and privacy plate sanitization.
+- [`config/apps.json`](config/apps.json) `[VERIFIED]`: Application definitions (`com.moveinsync.ets`, `com.moveinsync.driver.lite`, `com.moveinsync.driver.dco`) with explicit slug mappings (`employee`, `driver_lite`, `driver_dco`).
+- [`config/taxonomy.json`](config/taxonomy.json) `[VERIFIED]`: Refined regex taxonomy; false positives eliminated while preserving genuine crash/install defects.
+- [`data/`](data/) `[VERIFIED]`: Standardized review CSVs (600 ETS, 108 Lite, 7 DCO) and clean 3-row Play Store rating snapshots.
+- [`reports/`](reports/) `[VERIFIED]`: Cleaned and processed CSV datasets, summaries, and Markdown reports:
   - `processed_employee_reviews.csv` (600 rows, 29 columns)
   - `processed_driver_lite_reviews.csv` (108 rows, 29 columns)
   - `processed_driver_dco_reviews.csv` (7 rows, 29 columns)
@@ -55,10 +56,17 @@ The MoveInSync Review Analysis system provides a data-driven pipeline to ingest,
   - `ratings_history_clean.csv`
   - `preliminary_findings.md`
   - `classification_refinement_audit.csv`
-- [`charts/`](file:///d:/MOVENSYNC/charts) `[VERIFIED]`: 15 publication-quality 300 DPI Matplotlib PNG charts (5 charts each across Employee, Driver Lite, and Driver Partner apps) with data-driven titles and date ranges.
-- [`tests/test_phase1.py`](file:///d:/MOVENSYNC/tests/test_phase1.py) `[VERIFIED]`: Regression test suite for Phase 1 (11 tests).
-- [`tests/test_phase2.py`](file:///d:/MOVENSYNC/tests/test_phase2.py) `[VERIFIED]`: Regression test suite for Phase 2 (10 tests).
-- [`backups/`](file:///d:/MOVENSYNC/backups) `[VERIFIED]`: Timestamped pre-edit source code and data backups (`backups/20261012_232226/`, `backups/20261012_235125/`, and `backups/20261013_000447/`).
+- [`reports/assignment_final_review/`](reports/assignment_final_review/) `[VERIFIED]`: Forward Deployed Engineer candidate assignment deliverables:
+  - `submission_summary.md` (2–3-page condensed executive brief)
+  - `final_assignment_report.md` (detailed supporting discovery report)
+  - `review_audit.md` (taxonomy, version, and privacy audit)
+  - `prioritized_recommendations.csv` (formal action matrix)
+  - `measurement_framework.csv` (KPIs, baselines, telemetry streams)
+- [`charts/`](charts/) `[VERIFIED]`: 15 publication-quality 300 DPI Matplotlib PNG charts (5 charts each across Employee, Driver Lite, and Driver Partner apps) with data-driven titles and date ranges.
+- [`tests/test_phase1.py`](tests/test_phase1.py) `[VERIFIED]`: Regression test suite for Phase 1 (11 tests).
+- [`tests/test_phase2.py`](tests/test_phase2.py) `[VERIFIED]`: Regression test suite for Phase 2 (10 tests).
+- [`tests/test_phase4.py`](tests/test_phase4.py) `[VERIFIED]`: Regression test suite for Phase 4 (10 tests).
+- [`backups/`](backups/) `[VERIFIED]`: Timestamped pre-edit source code and data backups, including private unredacted raw datasets in `backups/raw_data_private_unredacted/`.
 
 ---
 
@@ -89,19 +97,30 @@ Executed via `.venv\Scripts\python.exe -m unittest discover -s tests -p "test_*.
 | `test_phase2` | `test_empty_or_missing_optional_fields_handled_safely` | Missing optional columns handled without crashing or row dropping | **VERIFIED PASS** |
 | `test_phase2` | `test_dynamic_chart_titles_and_dates_reflect_dataset` | Chart titles/dates derived from data; handles empty data gracefully | **VERIFIED PASS** |
 | `test_phase2` | `test_pipeline_idempotency_no_duplicate_rows` | Running pipeline repeatedly produces identical row counts | **VERIFIED PASS** |
+| `test_phase4` | `test_raw_data_never_modified_by_data_layer` | Data layer operations do not mutate disk raw datasets | **VERIFIED PASS** |
+| `test_phase4` | `test_data_layer_handles_missing_fields_gracefully` | Missing optional columns handled safely without runtime crash | **VERIFIED PASS** |
+| `test_phase4` | `test_app_selection_returns_correct_dataset` | Scope switcher selects exact row counts (600, 108, 7, 715) | **VERIFIED PASS** |
+| `test_phase4` | `test_date_range_filter_correctly_bounds_reviews` | Date range slider strictly isolates records within date bounds | **VERIFIED PASS** |
+| `test_phase4` | `test_star_rating_filter_matches_selection` | Star rating filters match exact user star selection | **VERIFIED PASS** |
+| `test_phase4` | `test_version_filter_matches_selection` | Version selection accurately returns matching releases | **VERIFIED PASS** |
+| `test_phase4` | `test_theme_filter_matches_multi_label_reviews` | Theme filter extracts reviews matching multi-label theme flags | **VERIFIED PASS** |
+| `test_phase4` | `test_search_filter_finds_matching_text` | Case-insensitive keyword search finds matching reviews | **VERIFIED PASS** |
+| `test_phase4` | `test_empty_filter_result_handled_safely` | Zero-match filters return empty DataFrame with intact schema | **VERIFIED PASS** |
+| `test_phase4` | `test_csv_export_format_matches_filtered_data` | Filtered CSV export matches exact active selection with clean encoding | **VERIFIED PASS** |
 
-**Summary:** 21 ran, 21 passed, 0 failed, 0 skipped.
+**Summary:** 31 ran, 31 passed, 0 failed, 0 skipped.
 
 ---
 
 ## 5. Raw Data Integrity Status
 
-**Verification Timestamp:** 2026-10-13 00:13:12 IST  
-**Integrity Rule:** Zero tolerance for raw data truncation, deletion, or modification of review records.
+**Verification Timestamp:** 2026-10-13 04:15:00 IST  
+**Integrity Rule:** Zero unredacted PII in public datasets. Original unredacted raw source preserved in private offline backup.
 
 | File Path | Rows | Unique `reviewId` | Duplicate IDs | SHA-256 Checksum | Integrity Status |
-| :--- | :---: | :---: | :---: | :--- | :---: |
-| `data/com.moveinsync.ets_reviews.csv` | 600 | 600 | 0 | `8470f0eb0f8fc69fab1e8e736067a0a9a976559264dcd4b7d74693804108d3f5` | **VERIFIED UNCHANGED** |
+| :--- | :---: | :---: | :---: | :--- | :--- |
+| `data/com.moveinsync.ets_reviews.csv` | 600 | 600 | 0 | `6c487232b44afda9db1dafde44540b511c5fc3b448b4e104ce223f704569b643` | **VERIFIED SANITIZED** (1 vehicle plate redacted) |
+| `backups/raw_data_private_unredacted/com.moveinsync.ets_reviews.csv` | 600 | 600 | 0 | `8470f0eb0f8fc69fab1e8e736067a0a9a976559264dcd4b7d74693804108d3f5` | **VERIFIED ORIGINAL** (Private Backup) |
 | `data/com.moveinsync.driver.lite_reviews.csv` | 108 | 108 | 0 | `099dd476420245466cf37a8a3cad882e9f15a52390d3540489524f3f74212d4b` | **VERIFIED UNCHANGED** |
 | `data/com.moveinsync.driver.dco_reviews.csv` | 7 | 7 | 0 | `12135541b3ec29e3340f611a7e1f5cf8e5aa2aef9e335dffae5e1df9c8d73013` | **VERIFIED UNCHANGED** |
 | `data/ratings_history.csv` | 3 | N/A | 0 duplicate keys | `dc0d7bcd5f51d356e43b0aa4b616ccbaa40162be8f3d0ffd41fbde78124c2454` | **VERIFIED UNCHANGED** |
@@ -112,7 +131,7 @@ Executed via `.venv\Scripts\python.exe -m unittest discover -s tests -p "test_*.
 
 - **`config/apps.json`** `[VERIFIED]`: Valid JSON. 3 applications configured (`com.moveinsync.ets`, `com.moveinsync.driver.lite`, `com.moveinsync.driver.dco`) with explicit slugs (`employee`, `driver_lite`, `driver_dco`).
 - **`config/taxonomy.json`** `[VERIFIED]`: Valid JSON. 8 core functional themes, 1 fallback category (`other_unclassified`), shared across all configured apps.
-- **Dynamic Integration in Pipeline** `[VERIFIED]`: [`analyze_reviews.py`](file:///d:/MOVENSYNC/analyze_reviews.py) dynamically reads `config/apps.json` and loops over all defined apps, reusing taxonomy rules with zero hardcoded app-specific branching.
+- **Dynamic Integration in Pipeline** `[VERIFIED]`: [`analyze_reviews.py`](analyze_reviews.py) dynamically reads `config/apps.json` and loops over all defined apps, reusing taxonomy rules with zero hardcoded app-specific branching.
 
 ---
 

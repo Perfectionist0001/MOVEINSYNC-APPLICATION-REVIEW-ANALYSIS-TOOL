@@ -22,7 +22,7 @@ All raw files in `data/` are treated as immutable read-only source files. Scrape
 
 ## 2. Data Cleaning & Typing Pipeline
 
-The cleaning pipeline in [`analyze_reviews.py`](file:///d:/MOVENSYNC/analyze_reviews.py) executes the following deterministic transformations:
+The cleaning pipeline in [`analyze_reviews.py`](../analyze_reviews.py) executes the following deterministic transformations:
 1. **Temporal Typing:** Timestamps (`at`) are converted to `datetime64[ns]`, extracting standard `date` and Monday-anchored `week` periods.
 2. **Numeric Coercion:** Scores and thumbs-up counts are safely coerced to integer types with missing fallback to $0$.
 3. **Text Normalization:** Review text is stripped, lowercased for regex parsing, with missing review text treated as empty strings.
@@ -63,7 +63,7 @@ Where $P$ is the predicted theme set and $T$ is the ground-truth theme set.
 
 - **Initial Evaluation:** 28/30 exact matches (93.3% accuracy, 0.972 Jaccard similarity).
 - **Refinement:** The word *"message"* was discovered to match modal error dialogs in crash reviews. Refined regex to contextual alert phrases (`message alert`, `push message`, `message comes`) and added offline caching patterns.
-- **Final Evaluation:** **30/30 Exact Matches (100.0% accuracy, 1.000 Jaccard similarity)**, documented in [`reports/validation_ground_truth_audit.csv`](file:///d:/MOVENSYNC/reports/validation_ground_truth_audit.csv).
+- **Final Evaluation:** **30/30 Exact Matches (100.0% accuracy, 1.000 Jaccard similarity)**, documented in [`validation_ground_truth_audit.csv`](validation_ground_truth_audit.csv).
 
 ---
 

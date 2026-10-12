@@ -14,6 +14,16 @@ from typing import Dict, List, Optional, Tuple, Any
 import pandas as pd
 
 
+import re
+
+def sanitize_review_text(text: str) -> str:
+    """Sanitizes sensitive identifiers such as vehicle registration plates from review text."""
+    if not isinstance(text, str) or not text:
+        return ""
+    plate_pattern = re.compile(r'\b[A-Z]{2}\s*[-– ]?\s*\d{1,2}\s*[-– ]?\s*[A-Z]{1,3}\s*[-– ]?\s*\d{4}\b', re.IGNORECASE)
+    return plate_pattern.sub(r'[REDACTED: Vehicle Plate HR 47-X-XXXX]', text)
+
+
 def load_apps_config(config_path: str = "config/apps.json") -> List[Dict[str, Any]]:
     """Loads configured applications from JSON config."""
     if not os.path.exists(config_path):
@@ -33,7 +43,7 @@ def load_taxonomy_config(config_path: str = "config/taxonomy.json") -> Dict[str,
 
 
 def load_reviews_data(file_path: str = "reports/processed_all_reviews.csv") -> pd.DataFrame:
-    """Loads standardized processed reviews dataset."""
+    """Loads standardized processed reviews dataset with PII sanitization."""
     if not os.path.exists(file_path):
         raise FileNotFoundError(f"Processed reviews dataset not found at {file_path}. Run analytics pipeline first.")
     
@@ -58,7 +68,7 @@ def load_reviews_data(file_path: str = "reports/processed_all_reviews.csv") -> p
     if "content" not in df.columns:
         df["content"] = ""
     else:
-        df["content"] = df["content"].fillna("").astype(str)
+        df["content"] = df["content"].fillna("").astype(str).apply(sanitize_review_text)
         
     return df
 

@@ -41,7 +41,7 @@ This platform bridges the gap between raw, unstructured Google Play feedback and
 ## 🚀 Key Technical Highlights & Engineering Feats
 
 - 🎯 **84.0% Exact Match Classification**: Multi-label rule-based taxonomy evaluated on an independent, stratified 50-review holdout sample (`seed=101`), achieving a **0.893 Micro F1-score** and **0.0267 Hamming Loss** with zero data leakage.
-- 🔄 **Multi-App Parity Pipeline**: Decoupled, configuration-driven analytical pipeline ([`analyze_reviews.py`](file:///d:/MOVENSYNC/analyze_reviews.py)) generating a uniform 29-column schema across employee and driver applications.
+- 🔄 **Multi-App Parity Pipeline**: Decoupled, configuration-driven analytical pipeline ([`analyze_reviews.py`](analyze_reviews.py)) generating a uniform 29-column schema across employee and driver applications.
 - ⚡ **Interactive Streamlit & Plotly UI**: Real-time multi-app slicing, dynamic KPI calculations, multi-select theme filtering, weekly volume trajectories, and RFC-4180 CSV export.
 - 🛡️ **Zero-Drift Data Governance**: Immutable raw CSV datasets protected with 100% SHA-256 cryptographic verification.
 - 🧪 **31 Automated Regression Tests**: Standard library `unittest` suite guaranteeing schema compliance, idempotency, mathematical reconciliation, and edge-case safety.
@@ -99,7 +99,7 @@ Evaluated on an independent, stratified 50-review holdout sample separate from i
 
 ## 🎛️ Interactive Dashboard Features
 
-The Streamlit dashboard ([`dashboard.py`](file:///d:/MOVENSYNC/dashboard.py)) offers deep diagnostic tools for product managers, fleet operators, and QA engineers:
+The Streamlit dashboard ([`dashboard.py`](dashboard.py)) offers deep diagnostic tools for product managers, fleet operators, and QA engineers:
 
 - **Multi-App Scope Switcher**: Toggle dynamically between All Apps (715 reviews), Employee App (600 reviews), Driver Lite (108 reviews), or Driver Partner (7 reviews).
 - **Executive KPI Cards**: Real-time calculation of Total Reviews, Mean Star Rating, Negative Feedback Rate (1–2★), and Top Problem Category.
@@ -241,6 +241,27 @@ Validates SHA-256 hashes of raw datasets, schema conformance, duplicate checks, 
    - Reviews frequently span multiple themes. Therefore, the sum of theme percentages across categories exceeds 100%.
 4. **Voluntary Response Bias**:
    - Written feedback skews more critical (29.9% negative feedback) compared to overall app store star ratings (7.1% negative feedback).
+5. **Privacy Sanitization & Redaction Protocol**:
+   - Free-text review content was audited for embedded PII and identifiable details. Review `c789c25d-4efe-4fd4-8986-de67be5beeba` containing a vehicle license plate (`HR 47-G-XXXX`) was sanitized to `[REDACTED: Vehicle Plate HR 47-X-XXXX]` across all public raw datasets, processed files, analytical reports, and live dashboard pipelines (`dashboard_data.py`).
+   - Unredacted original source files are preserved strictly in private offline backups outside version control.
+   - *Git History Disclosure*: This license plate was present in the initial commit history (`4703fee`). Sanitizing the working tree cleans the public deliverables and dashboard, but purging past commits requires Git history rewriting (`git filter-repo`), which is out of scope for this remediation.
+6. **Automated Multi-Label Themes vs. Curated Problem Clusters**:
+   - Automated regex taxonomy operates at token-level ($N_{\text{neg}}=8$ for `safety_and_permissions`).
+   - Curated problem clusters incorporate contextual commuter reports ($N_{\text{neg}}=23$ for safety, including rude drivers and off-route drop-offs routed to operational support by automated regex). Denominators and inclusion criteria are strictly tracked.
+
+---
+
+## 📋 Forward Deployed Engineer Assignment Deliverables
+
+The complete MoveInSync Forward Deployed Engineer candidate assignment deliverables are available in `reports/assignment_final_review/`:
+
+| Deliverable | File Path | Scope & Focus |
+| :--- | :--- | :--- |
+| **Executive Submission Brief** | [`reports/assignment_final_review/submission_summary.md`](reports/assignment_final_review/submission_summary.md) | 2–3-page executive brief covering root-cause hypotheses, priority ranking, and 30-day plan. |
+| **Detailed Analytical Report** | [`reports/assignment_final_review/final_assignment_report.md`](reports/assignment_final_review/final_assignment_report.md) | Exhaustive problem discovery, data reconciliation, release regression audit, and governance. |
+| **Review Audit & Evidence Validation** | [`reports/assignment_final_review/review_audit.md`](reports/assignment_final_review/review_audit.md) | Methodological audit reconciling automated taxonomy vs. manual clusters and version figures. |
+| **Prioritized Recommendations Matrix** | [`reports/assignment_final_review/prioritized_recommendations.csv`](reports/assignment_final_review/prioritized_recommendations.csv) | Full tabular action matrix with owners, evidence IDs, provisional targets, and risks. |
+| **Measurement Framework** | [`reports/assignment_final_review/measurement_framework.csv`](reports/assignment_final_review/measurement_framework.csv) | Technical KPIs, observation baseline windows, formulas, and data streams. |
 
 ---
 

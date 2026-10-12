@@ -76,16 +76,16 @@ A strict two-tier validation methodology was applied, keeping the initial tuning
   - *Discrepancy 1 (False Positive)*: Sample #16 (`3a66e81d...`) contained `"displays a message that says the app cannot be opened as it is not installed"`. The unconstrained keyword `message` triggered `notifications`.
   - *Discrepancy 2 (False Negative)*: Sample #11 (`e12ed49a...`) contained `"needs a network call every time you open the app which is annoying when you're underground"`. The classifier missed `ui_and_usability` (offline caching).
 - **Remediation & Final Result**:
-  - Refined regex in [`analyze_reviews.py`](file:///d:/MOVENSYNC/analyze_reviews.py) to target contextual alerts (`message alert`, `push message`, `message comes`) and added caching/offline terms (`cache`, `offline`, `network call`).
+  - Refined regex in [`analyze_reviews.py`](../analyze_reviews.py) to target contextual alerts (`message alert`, `push message`, `message comes`) and added caching/offline terms (`cache`, `offline`, `network call`).
   - **Post-Fix Accuracy**: **30/30 Exact Matches (100.0% accuracy, mean Jaccard = 1.000)**.
-- **Audit File**: [`reports/validation_ground_truth_audit.csv`](file:///d:/MOVENSYNC/reports/validation_ground_truth_audit.csv).
+- **Audit File**: [`reports/validation_ground_truth_audit.csv`](validation_ground_truth_audit.csv).
 
 ### B. Independent 50-Review Holdout Validation (Phase 3)
 - **Holdout Dataset**: A completely separate 50-review sample drawn using reproducible seed `101`, stratified across apps and star ratings:
   - MoveInSync Employee App (`com.moveinsync.ets`): 35 reviews (14 Neg 1–2★, 3 Neu 3★, 18 Pos 4–5★)
   - Moveinsync Partner - Lite (`com.moveinsync.driver.lite`): 12 reviews (4 Neg 1–2★, 2 Neu 3★, 6 Pos 4–5★)
   - MoveInSync - Driver Partner (`com.moveinsync.driver.dco`): 3 reviews (2 Neg 1–2★, 0 Neu 3★, 1 Pos 4–5★) — *Statistically limited sample ($N=3$ of 7 total); reported transparently with preliminary confidence*.
-  - **Sample File**: [`reports/holdout_validation_sample.csv`](file:///d:/MOVENSYNC/reports/holdout_validation_sample.csv) (Zero overlap with the 30-review tuning set).
+  - **Sample File**: [`reports/holdout_validation_sample.csv`](holdout_validation_sample.csv) (Zero overlap with the 30-review tuning set).
 - **Multi-Label Evaluation Methodology**:
   Because reviews can exhibit zero, one, or multiple themes simultaneously, classification performance is measured using rigorous multi-label evaluation metrics rather than misleading single-label accuracy:
   - **Multi-Label Exact Match Ratio**: **84.0%** (42 / 50 reviews have 100% identical ground-truth and predicted label sets).
@@ -101,7 +101,7 @@ A strict two-tier validation methodology was applied, keeping the initial tuning
   - `support_and_operations`: Precision = 1.000, Recall = 0.400, F1 = 0.571 (Support: 5)
   - `safety_and_permissions`: Support = 1, Precision = 0.000, Recall = 0.000 (False Negative on implicit route check)
   - `other_unclassified`: Precision = 0.886, Recall = 1.000, F1 = 0.939 (Support: 39)
-- **Holdout Audit Artifacts**: Full review-by-review audit saved in [`reports/holdout_validation_results.csv`](file:///d:/MOVENSYNC/reports/holdout_validation_results.csv); metric summary saved in [`reports/holdout_metrics_summary.csv`](file:///d:/MOVENSYNC/reports/holdout_metrics_summary.csv).
+- **Holdout Audit Artifacts**: Full review-by-review audit saved in [`reports/holdout_validation_results.csv`](holdout_validation_results.csv); metric summary saved in [`reports/holdout_metrics_summary.csv`](holdout_metrics_summary.csv).
 - **Integrity Rule Adherence**: No taxonomy rules were modified during holdout evaluation. Initial benchmark was preserved and locked.
 
 ---
@@ -144,19 +144,19 @@ Recalculated version breakdown for employee app releases:
   - All records in `data/ratings_history.csv` originate from a **single calendar date (`2026-10-10`)**.
   - **Methodological Rule**: No time-series trends, historical rating trajectory, or longitudinal decay claims can be drawn from `ratings_history.csv` because multi-date historical intervals do not exist in the source data.
   - Review-level ratings (e.g., sample averages 3.77★, 3.57★, 2.71★) must remain strictly segregated from Play Store lifetime store ratings (4.64★, 4.29★, 3.50★).
-- **Clean Output File**: Filtered and mirrored in [`reports/ratings_history_clean.csv`](file:///d:/MOVENSYNC/reports/ratings_history_clean.csv).
+- **Clean Output File**: Filtered and mirrored in [`reports/ratings_history_clean.csv`](ratings_history_clean.csv).
 
 ---
 
 ## 7. Chart Verification Audit
 
-All 5 visualization charts in [`charts/`](file:///d:/MOVENSYNC/charts) were audited against the underlying data frames:
+All 5 visualization charts in [`charts/`](../charts/) were audited against the underlying data frames:
 
-1. [`charts/employee_ratings_distribution.png`](file:///d:/MOVENSYNC/charts/employee_ratings_distribution.png): Bars match exact star counts (1★: 160, 2★: 16, 3★: 15, 4★: 21, 5★: 388). Header notes Sample Mean (3.77★) vs. Lifetime Store Rating (4.64★). **PASS**.
-2. [`charts/employee_ratings_over_time.png`](file:///d:/MOVENSYNC/charts/employee_ratings_over_time.png): 11 weekly bins (2026-07-28 to 2026-10-09) correctly plotted with twin-axis volume and rating trajectory. **PASS**.
-3. [`charts/negative_drivers_theme_breakdown.png`](file:///d:/MOVENSYNC/charts/negative_drivers_theme_breakdown.png): Horizontal bars match theme negative review counts (Crashes: 36, ETA: 27, Support/Ops: 25, Booking: 24, UI: 18, Login/OTP: 18, Notifications: 8, Safety: 7). Percentages correctly use $N_{\text{neg}}=176$ as denominator. **PASS**.
-4. [`charts/version_performance_comparison.png`](file:///d:/MOVENSYNC/charts/version_performance_comparison.png): Visualizes versions with $N \ge 15$ (`12.16.0`, `12.16.1`, `12.17.0`, `12.18.0`, `12.18.1`, `12.19.0`, `Unknown`). Bars match exact mean rating and negative %. **PASS**.
-5. [`charts/all_themes_sentiment_breakdown.png`](file:///d:/MOVENSYNC/charts/all_themes_sentiment_breakdown.png): Stacked bar chart correctly splits Positive (4–5★), Neutral (3★), and Negative (1–2★) for all 9 categories. **PASS**.
+1. [`charts/employee_ratings_distribution.png`](../charts/employee_ratings_distribution.png): Bars match exact star counts (1★: 160, 2★: 16, 3★: 15, 4★: 21, 5★: 388). Header notes Sample Mean (3.77★) vs. Lifetime Store Rating (4.64★). **PASS**.
+2. [`charts/employee_ratings_over_time.png`](../charts/employee_ratings_over_time.png): 11 weekly bins (2026-07-28 to 2026-10-09) correctly plotted with twin-axis volume and rating trajectory. **PASS**.
+3. [`charts/negative_drivers_theme_breakdown.png`](../charts/negative_drivers_theme_breakdown.png): Horizontal bars match theme negative review counts (Crashes: 36, ETA: 27, Support/Ops: 25, Booking: 24, UI: 18, Login/OTP: 18, Notifications: 8, Safety: 7). Percentages correctly use $N_{\text{neg}}=176$ as denominator. **PASS**.
+4. [`charts/version_performance_comparison.png`](../charts/version_performance_comparison.png): Visualizes versions with $N \ge 15$ (`12.16.0`, `12.16.1`, `12.17.0`, `12.18.0`, `12.18.1`, `12.19.0`, `Unknown`). Bars match exact mean rating and negative %. **PASS**.
+5. [`charts/all_themes_sentiment_breakdown.png`](../charts/all_themes_sentiment_breakdown.png): Stacked bar chart correctly splits Positive (4–5★), Neutral (3★), and Negative (1–2★) for all 9 categories. **PASS**.
 
 ---
 

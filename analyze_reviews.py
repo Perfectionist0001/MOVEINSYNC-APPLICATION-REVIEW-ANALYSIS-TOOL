@@ -72,10 +72,18 @@ def classify_text(text: str, compiled_rules: dict) -> list:
     return matches
 
 
+def sanitize_review_text(text: str) -> str:
+    """Sanitizes sensitive identifiers such as vehicle registration plates from review text."""
+    if not isinstance(text, str) or not text:
+        return ""
+    plate_pattern = re.compile(r'\b[A-Z]{2}\s*[-– ]?\s*\d{1,2}\s*[-– ]?\s*[A-Z]{1,3}\s*[-– ]?\s*\d{4}\b', re.IGNORECASE)
+    return plate_pattern.sub(r'[REDACTED: Vehicle Plate HR 47-X-XXXX]', text)
+
+
 def clean_app_dataframe(raw_df: pd.DataFrame, app_id: str) -> pd.DataFrame:
     """
     Cleans and types a raw reviews dataframe consistently for any configured app.
-    Preserves all rows, safely handles missing optional fields, and never infers missing versions.
+    Preserves all rows, safely handles missing optional fields, sanitizes PII, and never infers missing versions.
     """
     if raw_df.empty:
         return pd.DataFrame()
@@ -100,6 +108,7 @@ def clean_app_dataframe(raw_df: pd.DataFrame, app_id: str) -> pd.DataFrame:
     df["version_clean"] = df["version_clean"].replace({"": "Unknown/Unspecified", "nan": "Unknown/Unspecified", "None": "Unknown/Unspecified"})
     
     if "content" in df.columns:
+        df["content"] = df["content"].apply(sanitize_review_text)
         df["content_clean"] = df["content"].fillna("").astype(str).str.strip()
     else:
         df["content"] = ""

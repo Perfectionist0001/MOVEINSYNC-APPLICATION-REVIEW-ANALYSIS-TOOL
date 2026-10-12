@@ -17,10 +17,9 @@ if WORKSPACE_ROOT not in sys.path:
 
 def test_privacy_scan():
     print("[1/5] Running Comprehensive Privacy Scan...")
-    unredacted_plate = "".join(["HR", " 47-G", "-7055"])
-    plate_regex = re.compile(r"\b[A-Z]{2}[-\s]*\d{1,2}[-\s]*[A-Z]{1,2}[-\s]*\d{4}\b", re.IGNORECASE)
+    plate_regex = re.compile(r'(?<![0-9a-fA-F-])\b[A-Z]{2}[-\s]*\d{1,2}[-\s]*[A-Z]{1,3}[-\s]*\d{4}\b(?![0-9a-fA-F-])', re.IGNORECASE)
     
-    scanned_extensions = (".csv", ".md", ".json", ".html")
+    scanned_extensions = (".py", ".csv", ".md", ".json", ".html")
     skip_dirs = {".git", ".venv", "backups", "__pycache__", "scratch", ".agents"}
     
     violations = []
@@ -34,28 +33,14 @@ def test_privacy_scan():
                 try:
                     with open(fp, "r", encoding="utf-8", errors="ignore") as fh:
                         content = fh.read()
-                        if unredacted_plate in content:
-                            violations.append((rel_path, "Exact unredacted plate found"))
-                        matches = plate_regex.findall(content)
-                        for m in matches:
-                            if "7055" in m or ("HR" in m and "47" in m and "G" in m):
-                                violations.append((rel_path, f"Regex plate pattern leak: {m}"))
+                        if plate_regex.search(content):
+                            violations.append(rel_path)
                 except Exception as e:
                     print(f"    Warning reading {rel_path}: {e}")
                     
-    # Also scan production Python code (excluding test/scratch)
-    py_files = ["analyze_reviews.py", "dashboard_data.py", "dashboard.py", "scrape_reviews.py", "project_status.py"]
-    for pf in py_files:
-        if os.path.exists(pf):
-            with open(pf, "r", encoding="utf-8", errors="ignore") as fh:
-                content = fh.read()
-                # Check for plate literal inside review data paths or logic
-                if unredacted_plate in content and pf != "project_status.py":
-                    violations.append((pf, "Unredacted plate hardcoded in Python file"))
-                    
     if violations:
         for v in violations:
-            print(f"    FAILED: {v[0]} -> {v[1]}")
+            print(f"    FAILED: {v} -> Unredacted vehicle registration pattern detected")
         return False
     print("    PASSED: Zero unredacted plates or PII leaks across all public workspace files.")
     return True
@@ -247,9 +232,10 @@ def test_link_portability():
 
 def test_dashboard_sanitization():
     print("\n[5/5] Testing Dashboard Data Layer Sanitization & CSV Export...")
-    unredacted_plate = "".join(["HR", " 47-G", "-7055"])
+    plate_regex = re.compile(r'(?<![0-9a-fA-F-])\b[A-Z]{2}[-\s]*\d{1,2}[-\s]*[A-Z]{1,3}[-\s]*\d{4}\b(?![0-9a-fA-F-])', re.IGNORECASE)
+    placeholder = "[REDACTED: Vehicle Plate HR 47-X-XXXX]"
     try:
-        from dashboard_data import load_reviews_data, filter_reviews, export_filtered_csv
+        from dashboard_data import load_reviews_data, filter_reviews, export_filtered_csv, sanitize_review_text
         df = load_reviews_data()
         
         # Test review c789c25d-4efe-4fd4-8986-de67be5beeba
@@ -260,11 +246,11 @@ def test_dashboard_sanitization():
             return False
             
         content = matching["content"].iloc[0]
-        if unredacted_plate in content:
-            print("    FAILED: Raw unredacted plate found in loaded dashboard dataframe!")
+        if plate_regex.search(content):
+            print("    FAILED: Unredacted plate pattern found in loaded dashboard dataframe!")
             return False
-        if "[REDACTED: Vehicle Plate HR 47-X-XXXX]" not in content:
-            print(f"    FAILED: Expected redacted plate token missing. Content: {content}")
+        if placeholder not in content:
+            print("    FAILED: Expected redacted plate token missing from review content.")
             return False
         print("    PASSED: DataFrame loaded with sanitized content.")
         
@@ -274,20 +260,39 @@ def test_dashboard_sanitization():
             print("    FAILED: Keyword search for target review failed.")
             return False
         filtered_content = filtered_search[filtered_search["reviewId"] == target_id]["content"].iloc[0]
-        if "[REDACTED: Vehicle Plate HR 47-X-XXXX]" not in filtered_content:
+        if plate_regex.search(filtered_content):
+            print("    FAILED: Filtered search result contains unredacted plate pattern.")
+            return False
+        if placeholder not in filtered_content:
             print("    FAILED: Filtered search result does not contain redacted token.")
             return False
         print("    PASSED: Filtered review search returns sanitized content.")
         
         # Test CSV export function
         csv_str = export_filtered_csv(matching)
-        if unredacted_plate in csv_str:
-            print("    FAILED: CSV export contains unredacted plate!")
+        if plate_regex.search(csv_str):
+            print("    FAILED: CSV export contains unredacted plate pattern!")
             return False
-        if "[REDACTED: Vehicle Plate HR 47-X-XXXX]" not in csv_str:
+        if placeholder not in csv_str:
             print("    FAILED: CSV export does not contain redacted token!")
             return False
         print("    PASSED: export_filtered_csv emits clean, sanitized dataset.")
+
+        # Test sanitize_review_text with generic synthetic patterns constructed dynamically
+        p1 = " ".join(["DL", "01", "AB", "1234"])
+        p2 = "-".join(["KA", "05", "M", "9999"])
+        p3 = "".join(["MH", "12", "DE", "4567"])
+        generic_samples = [
+            (f"Driver for cab {p1} was late", f"Driver for cab {placeholder} was late"),
+            (f"Driver for {p2} misbehaved", f"Driver for {placeholder} misbehaved"),
+            (f"Vehicle {p3} dropped off early", f"Vehicle {placeholder} dropped off early")
+        ]
+        for raw_sample, expected_redaction in generic_samples:
+            sanitized = sanitize_review_text(raw_sample)
+            if sanitized != expected_redaction or plate_regex.search(sanitized):
+                print("    FAILED: Generic sanitization failed for synthetic pattern.")
+                return False
+        print("    PASSED: sanitize_review_text correctly redacts generic vehicle registration patterns.")
         return True
     except Exception as e:
         print(f"    FAILED: Exception in dashboard data layer test: {e}")

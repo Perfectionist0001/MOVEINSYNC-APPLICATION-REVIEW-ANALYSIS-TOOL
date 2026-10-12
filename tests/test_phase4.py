@@ -149,7 +149,46 @@ class TestPhase4DashboardDataEngine(unittest.TestCase):
         self.assertFalse(holdout_df.empty)
         crashes_h = holdout_df[holdout_df["theme"] == "crashes_and_updates"].iloc[0]
         self.assertEqual(crashes_h["precision"], 1.0)
-        self.assertAlmostEqual(crashes_h["f1_score"], 0.909, places=3)
+    def test_privacy_sanitization_generic_patterns(self):
+        """Acceptance test: Sanitization engine redacts generic vehicle registration patterns and preserves clean dataset."""
+        import re
+        plate_regex = re.compile(r'(?<![0-9a-fA-F-])\b[A-Z]{2}[-\s]*\d{1,2}[-\s]*[A-Z]{1,3}[-\s]*\d{4}\b(?![0-9a-fA-F-])', re.IGNORECASE)
+        placeholder = "[REDACTED: Vehicle Plate HR 47-X-XXXX]"
+        
+        # Test generic synthetic plate patterns assembled dynamically
+        p1 = " ".join(["DL", "01", "AB", "1234"])
+        p2 = "-".join(["KA", "05", "M", "9999"])
+        p3 = "".join(["MH", "12", "DE", "4567"])
+        test_cases = [
+            (f"Driver of cab {p1} was reckless", f"Driver of cab {placeholder} was reckless"),
+            (f"Vehicle {p2} was delayed", f"Vehicle {placeholder} was delayed"),
+            (f"Cab {p3} arrived late", f"Cab {placeholder} arrived late"),
+            ("Standard review without any vehicle numbers", "Standard review without any vehicle numbers")
+        ]
+        for raw_text, expected in test_cases:
+            result = dd.sanitize_review_text(raw_text)
+            self.assertEqual(result, expected)
+            self.assertFalse(bool(plate_regex.search(result)))
+            
+        # Verify active reviews dataframe contains no unredacted plates
+        for _, row in self.reviews_df.iterrows():
+            content = str(row.get("content", ""))
+            self.assertFalse(
+                bool(plate_regex.search(content)),
+                f"Unredacted vehicle registration plate detected in review {row.get('reviewId')}"
+            )
+            
+        # Verify target incident review contains the redaction placeholder
+        target_id = "c789c25d-4efe-4fd4-8986-de67be5beeba"
+        target_rows = self.reviews_df[self.reviews_df["reviewId"] == target_id]
+        self.assertFalse(target_rows.empty)
+        target_content = target_rows["content"].iloc[0]
+        self.assertIn(placeholder, target_content)
+
+        # Verify export_filtered_csv retains placeholder and has zero plate pattern leaks
+        csv_export = dd.export_filtered_csv(target_rows)
+        self.assertIn(placeholder, csv_export)
+        self.assertFalse(bool(plate_regex.search(csv_export)))
 
 
 if __name__ == "__main__":

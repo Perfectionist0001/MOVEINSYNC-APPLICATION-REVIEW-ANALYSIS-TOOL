@@ -9,6 +9,7 @@ import glob
 import hashlib
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import datetime
@@ -59,7 +60,7 @@ def check_dependencies() -> dict:
 
 def check_privacy_sanitization() -> dict:
     """Verifies that no unredacted vehicle registration plates exist in public datasets and final deliverables."""
-    target_unredacted = "".join(["HR", " 47-G", "-7055"])
+    plate_regex = re.compile(r'(?<![0-9a-fA-F-])\b[A-Z]{2}[-\s]*\d{1,2}[-\s]*[A-Z]{1,3}[-\s]*\d{4}\b(?![0-9a-fA-F-])', re.IGNORECASE)
     violations = []
     scan_files = [
         "data/com.moveinsync.ets_reviews.csv",
@@ -68,13 +69,18 @@ def check_privacy_sanitization() -> dict:
         "reports/processed_all_reviews.csv",
         "reports/assignment_final_review/final_assignment_report.md",
         "reports/assignment_final_review/submission_summary.md",
-        "reports/assignment_final_review/review_audit.md"
+        "reports/assignment_final_review/review_audit.md",
+        "scripts/verify_submission.py",
+        "project_status.py",
+        "dashboard_data.py",
+        "analyze_reviews.py",
+        "README.md"
     ]
     for fp in scan_files:
         if os.path.exists(fp):
             with open(fp, "r", encoding="utf-8", errors="ignore") as f:
                 content = f.read()
-                if target_unredacted in content:
+                if plate_regex.search(content):
                     violations.append(fp)
     return {
         "clean": len(violations) == 0,

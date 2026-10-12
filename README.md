@@ -242,7 +242,7 @@ Validates SHA-256 hashes of raw datasets, schema conformance, duplicate checks, 
 4. **Voluntary Response Bias**:
    - Written feedback skews more critical (29.9% negative feedback) compared to overall app store star ratings (7.1% negative feedback).
 5. **Privacy Sanitization & Redaction Protocol**:
-   - Free-text review content was audited for embedded PII and identifiable details. Review `c789c25d-4efe-4fd4-8986-de67be5beeba` containing a vehicle license plate (`HR 47-G-XXXX`) was sanitized to `[REDACTED: Vehicle Plate HR 47-X-XXXX]` across all public raw datasets, processed files, analytical reports, and live dashboard pipelines (`dashboard_data.py`).
+   - Free-text review content was audited for embedded PII and identifiable details. Review `c789c25d-4efe-4fd4-8986-de67be5beeba` containing an unredacted vehicle registration plate was sanitized to `[REDACTED: Vehicle Registration]` across all public raw datasets, processed files, analytical reports, and live dashboard pipelines (`dashboard_data.py`).
    - Unredacted original source files are preserved strictly in private offline backups outside version control.
    - *Git History Disclosure*: This license plate was present in the initial commit history (`4703fee`). Sanitizing the working tree cleans the public deliverables and dashboard, but purging past commits requires Git history rewriting (`git filter-repo`), which is out of scope for this remediation.
 6. **Automated Multi-Label Themes vs. Curated Problem Clusters**:

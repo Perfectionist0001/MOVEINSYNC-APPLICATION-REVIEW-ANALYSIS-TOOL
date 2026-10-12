@@ -184,7 +184,7 @@ In Phase 1 and Phase 2 reports, the vehicle registration plate was printed repea
   - The immutable review ID (`c789c25d-4efe-4fd4-8986-de67be5beeba`) is preserved as the internal tracking reference.
 
 ### 6.3 Public Repository History Disclosure & Immutability Notice
-- **Working Tree Sanitization**: Vehicle registration plate (`HR 47-G-XXXX`, review `c789c25d...`) has been replaced with `[REDACTED: Vehicle Plate HR 47-X-XXXX]` across all active raw datasets, processed datasets, reports, dashboards, and test suites.
+- **Working Tree Sanitization**: Vehicle registration plate in review `c789c25d...` has been replaced with `[REDACTED: Vehicle Plate HR 47-X-XXXX]` across all active raw datasets, processed datasets, reports, dashboards, and test suites.
 - **Git History Limitation**: The vehicle registration plate was present in the public repository in earlier Git commits (`main` branch baseline `4703fee`). 
 - **Methodological Boundary**: Sanitizing the active working tree ensures clean future releases and sanitized public downloads, but deleting it from the active version alone **does not erase historic Git commits**. Fully purging the identifier from the repository would require rewriting public Git history (`git filter-repo` / BFG Repo-Cleaner), which is intentionally NOT executed here per safety instructions ("Do not rewrite Git history").
 

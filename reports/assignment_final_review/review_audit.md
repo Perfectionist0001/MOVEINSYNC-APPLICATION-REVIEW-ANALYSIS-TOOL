@@ -19,7 +19,7 @@ However, from an executive product and engineering standpoint, earlier iteration
 1. **Unsubstantiated Technical Root Causes**: Treating technical hypotheses (e.g., Android Doze mode, SMS DLT scrubbing, Play Integrity verification bugs) as established facts without having inspected production telemetry, server logs, or crash dumps.
 2. **Arbitrary KPI Targets & Invented Baselines**: Proposing contractual-sounding operational SLAs (e.g., "92% on-time pickup", "99.5% OTP delivery") without defining empirical baseline collection windows or acknowledging fleet supply and traffic constraints.
 3. **Flawed Safety & Dispatch Governance**: Proposing unilateral algorithmic debarment of drivers below an arbitrary 4.2★ threshold and automated gender-based dispatch without human due process, legal vetting, or vendor contractual alignment.
-4. **Exposure of Personally Identifiable Information (PII)**: Publishing real vehicle registration plates (`[REDACTED: Vehicle Plate HR 47-X-XXXX]`) in public-facing documentation.
+4. **Exposure of Personally Identifiable Information (PII)**: Publishing real vehicle registration plates (`[REDACTED: Vehicle Registration]`) in public-facing documentation.
 5. **Unrealistic Day-1 Operational Posturing**: Writing action plans that assume immediate, unfettered access to internal production databases, Google Play Console, third-party SMS aggregators, and physical driver fleets on Day 1.
 
 Every one of these issues has been systematically audited, challenged, and remediated in the revised deliverables located in [`reports/assignment_final_review/`](.).
@@ -172,7 +172,7 @@ In `reports/assignment_final_review/measurement_framework.csv`, all targets have
 
 ### 6.1 Vulnerability Identified
 Review `c789c25d-4efe-4fd4-8986-de67be5beeba` in raw Google Play data contains:
-> *"Driver for cab number [REDACTED: Vehicle Plate HR 47-X-XXXX] is ridiculous.dont hire people with no manners .misbehaved with girl employee. dropped before location. Please escalate it further."*
+> *"Driver for cab number [REDACTED: Vehicle Registration] is ridiculous.dont hire people with no manners .misbehaved with girl employee. dropped before location. Please escalate it further."*
 
 In Phase 1 and Phase 2 reports, the vehicle registration plate was printed repeatedly in clear text in tables and narrative paragraphs.
 
@@ -180,11 +180,11 @@ In Phase 1 and Phase 2 reports, the vehicle registration plate was printed repea
 
 ### 6.2 Remediation Implemented
 - In all revised deliverables (`reports/assignment_final_review/`):
-  - Plate is redacted to: `[REDACTED: Vehicle Plate HR 47-X-XXXX]`.
+  - Plate is redacted to: `[REDACTED: Vehicle Registration]`.
   - The immutable review ID (`c789c25d-4efe-4fd4-8986-de67be5beeba`) is preserved as the internal tracking reference.
 
 ### 6.3 Public Repository History Disclosure & Immutability Notice
-- **Working Tree Sanitization**: Vehicle registration plate in review `c789c25d...` has been replaced with `[REDACTED: Vehicle Plate HR 47-X-XXXX]` across all active raw datasets, processed datasets, reports, dashboards, and test suites.
+- **Working Tree Sanitization**: Vehicle registration plate in review `c789c25d...` has been replaced with `[REDACTED: Vehicle Registration]` across all active raw datasets, processed datasets, reports, dashboards, and test suites.
 - **Git History Limitation**: The vehicle registration plate was present in the public repository in earlier Git commits (`main` branch baseline `4703fee`). 
 - **Methodological Boundary**: Sanitizing the active working tree ensures clean future releases and sanitized public downloads, but deleting it from the active version alone **does not erase historic Git commits**. Fully purging the identifier from the repository would require rewriting public Git history (`git filter-repo` / BFG Repo-Cleaner), which is intentionally NOT executed here per safety instructions ("Do not rewrite Git history").
 
@@ -194,7 +194,7 @@ In Phase 1 and Phase 2 reports, the vehicle registration plate was printed repea
 
 ### 7.1 Unrealistic Posturing Flagged
 Earlier drafts used phrasing like:
-- "Hour 01–04: Pull trip telematics for vehicle [REDACTED: Plate HR 47-X-XXXX]... debar the driver."
+- "Hour 01–04: Pull trip telematics for vehicle [REDACTED: Vehicle Registration]... debar the driver."
 - "Hour 04–08: Access Google Play Console and inspect Crashlytics... test on Vivo v25 Pro in lab."
 - "Hour 08–16: Pull SMS aggregator DLR reports from Gupshup/Twilio."
 
@@ -221,7 +221,7 @@ The revised Day-1 plan frames actions around what an FDE actually does:
 |                                    |                                           | human inquiries, policy-based safeguards.     |
 | 3. Operational KPIs & Baselines    | Invented targets without baseline windows.| Formal formulas, 14-day baseline collection   |
 |                                    |                                           | windows, marked as Provisional Targets.       |
-| 4. Privacy & PII                   | Exposed vehicle plate in clear text.      | Redacted to [REDACTED: Plate HR 47-X-XXXX];   |
+| 4. Privacy & PII                   | Exposed vehicle plate in clear text.      | Redacted to [REDACTED: Vehicle Registration];   |
 |                                    |                                           | internal review ID preserved.                 |
 | 5. Day-1 FDE Feasibility           | Assumed production DB/admin access on D1. | Formulated around telemetry data requests,    |
 |                                    |                                           | joint triage sessions, and diagnostic scripts.|

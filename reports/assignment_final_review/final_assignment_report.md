@@ -27,7 +27,7 @@ This study independently analyzes **715 publicly available Google Play reviews**
 - **No Unsubstantiated Technical Claims**: All technical fixes are treated as *conditional* upon empirical telemetry verification (e.g., investigating background GPS ping frequencies before modifying background services; auditing carrier Delivery Receipts before changing authentication providers).
 - **Human-in-the-Loop Safety Governance**: We explicitly reject arbitrary automated driver debarment thresholds (such as <4.2★) or unvetted gender-based dispatch rules. We propose rapid safety triage SLAs (<3 min operator response), documented human inquiries, and policy-based provisional reassignment.
 - **Provisional Targets & Defined Baseline Windows**: All proposed KPI targets are marked as *Provisional Operating Targets*, requiring a 14-day pre-fix observation window across production telemetry before contractual SLA adoption.
-- **Privacy & PII Protection**: Real vehicle registration numbers and personal identifiers have been fully redacted (`[REDACTED: Vehicle Plate HR 47-X-XXXX]`) while preserving immutable review IDs for internal cross-referencing.
+- **Privacy & PII Protection**: Real vehicle registration numbers and personal identifiers have been fully redacted (`[REDACTED: Vehicle Registration]`) while preserving immutable review IDs for internal cross-referencing.
 - **Realistic Day-1 FDE Posturing**: The Day-1 action plan is framed around structured telemetry requests, joint discovery meetings with internal leads, and diagnostic pipelines—not pretending to possess unilateral production database access.
 
 ---
@@ -167,7 +167,7 @@ $$\text{Priority Score} = (\text{Frequency} \times 0.25) + (\text{Severity} \tim
 - **Affected Applications & Builds**: MoveInSync (Employee) [19 reviews], Driver Lite [3 reviews], Driver Partner [1 review]; Builds: `12.17.0`, `12.18.1`, `12.19.0`.
 - **Representative Review Excerpts (PII Redacted)**:
   - `c789c25d-4efe-4fd4-8986-de67be5beeba` (Employee v12.17.0, 2026-08-24):  
-    > *"Driver for cab number [REDACTED: Vehicle Plate HR 47-X-XXXX] is ridiculous.dont hire people with no manners .misbehaved with girl employee. dropped before location. Please escalate it further."*
+    > *"Driver for cab number [REDACTED: Vehicle Registration] is ridiculous.dont hire people with no manners .misbehaved with girl employee. dropped before location. Please escalate it further."*
   - `fb887543-7a35-42b3-9490-f61c28b841d9` (Employee v12.18.1, 2026-09-16):  
     > *"Why does the company keep assigning rude, disrespectful, and abusive cab drivers? Is there no proper quality check or background verification done?"*
 - **User-Reported Symptoms**: Commuters report driver verbal abuse, reckless driving, female employees dropped alone at unauthorized locations before their scheduled destinations, and unanswered emergency helpdesk numbers.
@@ -351,7 +351,7 @@ An external Forward Deployed Engineer on Day 1 does not possess administrative a
 | Time Window         | Practical Engineering Action                                                             |
 +---------------------+------------------------------------------------------------------------------------------+
 | Hour 01–03:         | • Convene joint briefing with Fleet Safety Operations & Transport Desk Product Lead.     |
-| Discovery Briefing  | • Review the 23 public safety reviews and present redacted case study [Plate HR 47-X-XXXX]|
+| Discovery Briefing  | • Review the 23 public safety reviews and present redacted case study [REDACTED: Vehicle Registration]|
 |                     | • Cross-reference public complaints against internal ticket queues to assess backlog.   |
 |                     |                                                                                          |
 | Hour 03–05:         | • Submit formal telemetry extraction request to Platform Data Engineering:               |

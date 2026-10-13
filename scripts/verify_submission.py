@@ -239,7 +239,7 @@ def test_link_portability():
 def test_dashboard_sanitization():
     print("\n[5/5] Testing Dashboard Data Layer Sanitization & CSV Export...")
     plate_regex = re.compile(r'(?<![0-9a-fA-F-])\b[A-Z]{2}[-\s]*\d{1,2}[-\s]*[A-Z]{1,3}[-\s]*\d{4}\b(?![0-9a-fA-F-])', re.IGNORECASE)
-    placeholder = "[REDACTED: Vehicle Plate HR 47-X-XXXX]"
+    placeholder = "[REDACTED: Vehicle Registration]"
     try:
         from dashboard_data import load_reviews_data, filter_reviews, export_filtered_csv, sanitize_review_text
         df = load_reviews_data()

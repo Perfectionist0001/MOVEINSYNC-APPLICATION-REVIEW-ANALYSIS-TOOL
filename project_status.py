@@ -297,7 +297,7 @@ def main():
     priv = check_privacy_sanitization()
     priv_label = "VERIFIED CLEAN (Zero unredacted vehicle registration plates found)" if priv["clean"] else f"VIOLATION: Unredacted PII in {priv['violations']}"
     print(f"\n[8] Privacy & PII Sanitization:")
-    print(f"    - Vehicle Plate Redaction: {priv_label}")
+    print(f"    - Vehicle Registration Redaction: {priv_label}")
 
     # 9. Dynamic Summary Status
     print("\n" + "=" * 70)

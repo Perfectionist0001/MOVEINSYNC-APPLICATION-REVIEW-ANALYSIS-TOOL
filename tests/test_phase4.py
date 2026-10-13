@@ -153,7 +153,7 @@ class TestPhase4DashboardDataEngine(unittest.TestCase):
         """Acceptance test: Sanitization engine redacts generic vehicle registration patterns and preserves clean dataset."""
         import re
         plate_regex = re.compile(r'(?<![0-9a-fA-F-])\b[A-Z]{2}[-\s]*\d{1,2}[-\s]*[A-Z]{1,3}[-\s]*\d{4}\b(?![0-9a-fA-F-])', re.IGNORECASE)
-        placeholder = "[REDACTED: Vehicle Plate HR 47-X-XXXX]"
+        placeholder = "[REDACTED: Vehicle Registration]"
         
         # Test generic synthetic plate patterns assembled via test fixture helper
         def _make_test_fixture(state: str, rto: str, series: str, num: str, sep: str = " ") -> str:

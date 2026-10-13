@@ -28,7 +28,7 @@ The objective is to explain **why MoveInSync's app store ratings are lower than 
    - **6-Layer Diagnostic Separation**: Every finding strictly distinguishes *Observed Evidence* $\rightarrow$ *User Symptoms* $\rightarrow$ *Root-Cause Hypotheses* $\rightarrow$ *Recommended Investigations* $\rightarrow$ *Conditional Fixes* $\rightarrow$ *Provisional Metrics*.
    - **Conditional Technical Solutions**: No code fix is assumed blindly; all engineering fixes are conditional upon telemetry verification (e.g., investigating background GPS ping frequencies before modifying background services).
    - **Human-in-the-Loop Safety Governance**: We reject arbitrary automated driver rating bans (<4.2★) or unvetted dispatch rules. We propose rapid safety triage SLAs (<3 min operator response), documented human inquiries, and policy-based safeguards.
-   - **Privacy Remediation**: Vehicle registration plates have been sanitized to `[REDACTED: Vehicle Plate HR 47-X-XXXX]` across the current repository. Note: This identifier was previously committed to public Git history; deleting it from the active tree sanitizes future releases but does not rewrite historic Git commits.
+   - **Privacy Remediation**: Vehicle registration plates have been sanitized to `[REDACTED: Vehicle Registration]` across the current repository. Note: This identifier was previously committed to public Git history; deleting it from the active tree sanitizes future releases but does not rewrite historic Git commits.
 
 ---
 
@@ -84,7 +84,7 @@ Prioritized via multi-criteria scoring: $\text{Score} = (F \times 0.25) + (S \ti
 
 ### Problem 1 (P0): Driver Misconduct, Premature Drop-Offs & Commuter Safety Protocols
 - **Observed Review Evidence**: 23 negative reviews (22 1-star, 1 2-star).  
-  *Excerpt (`c789c25d...`, v12.17.0)*: *"Driver for cab number [REDACTED: Vehicle Plate HR 47-X-XXXX] is ridiculous.dont hire people with no manners .misbehaved with girl employee. dropped before location. Please escalate it further."*  
+  *Excerpt (`c789c25d...`, v12.17.0)*: *"Driver for cab number [REDACTED: Vehicle Registration] is ridiculous.dont hire people with no manners .misbehaved with girl employee. dropped before location. Please escalate it further."*  
   *Excerpt (`fb887543...`, v12.18.1)*: *"Why does the company keep assigning rude, disrespectful, and abusive cab drivers? Is there no proper quality check or background verification done?"*
 - **User Symptom**: Passenger vulnerability, fear, stranded commuters, unreachable transport helpdesks.
 - **Root-Cause Hypothesis**: Unvetted third-party vendor drivers; Driver Lite allows manual trip termination outside destination geofences; SOS alerts route to asynchronous ticketing queues.
@@ -160,7 +160,7 @@ An incoming Forward Deployed Engineer on Day 1 does not possess administrative a
 | Time Horizon        | Realistic Practical Action                                                               |
 +---------------------+------------------------------------------------------------------------------------------+
 | Hour 01–03:         | • Host joint discovery briefing with Fleet Safety Operations & Transport Desk Product    |
-| Discovery Briefing  |   Lead. Review the 23 public safety reviews and present redacted case study [HR 47-X-XXXX].|
+| Discovery Briefing  |   Lead. Review the 23 public safety reviews and present redacted case study [REDACTED: Vehicle Registration].|
 |                     | • Audit internal support ticket queue against the 5 public complaint categories.         |
 |                     |                                                                                          |
 | Hour 03–05:         | • Submit formal telemetry extraction request to Platform Data Engineering:               |
